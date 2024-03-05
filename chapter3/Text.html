@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+        let a = 0.3;
+        console.log('typeof a ',typeof a);
+        
+        let str = 'hello "How are you" ';
+        console.log(str);
+
+        str = "Hello \"Hi\" 'hello' "
+             + "\n Another line";
+        console.log(str);
+
+        let price = 100;
+        let quantity = 2;
+        let statement= "Price "+price 
+                        +"\nQuantity "+quantity
+                        +"\nTotal "+(price*quantity);
+        console.log(statement);
+
+        statement = `Price ${price}
+Quantity ${quantity}
+Total ${price*quantity}
+                     `
+        console.log(statement);
+    </script>    
+</html>
