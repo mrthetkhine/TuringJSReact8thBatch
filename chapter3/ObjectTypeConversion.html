@@ -1,0 +1,29 @@
+<html>
+    
+    <script>
+       let obj ={
+            data : 20,
+            name : "TK",
+            
+            toString()
+            {
+                console.log('ToString');
+                return "123";
+            },
+            valueOf()
+            {
+                console.log('ValueOf');
+                return {};
+            }
+       };
+       console.log('""+obj ',""+obj);
+       console.log("number ",+obj);
+       /*
+       toString?
+        toString    
+            '123'->number->123
+       */
+       console.log("boolean ",!!obj);
+       console.log('obj+3 ',obj+3);
+    </script>    
+</html>

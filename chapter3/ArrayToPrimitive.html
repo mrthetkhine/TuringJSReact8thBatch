@@ -1,0 +1,22 @@
+<html>
+    
+    <script>
+       let arr = [10,20,30];
+       console.log('Arr ', ''+arr);
+       console.log('+arr ',+arr);//"10,20,30"->number
+
+       let arr2= [10];
+       console.log('+arr2 ',+arr2);//10
+       console.log('+[] ',+[]);
+       console.log('+[null] ',+[null]);//[null]->toString->""->0
+       console.log('[null].toString ',[null].toString());
+       console.log('[undefined].toString ',[undefined].toString());
+       console.log('+[undefined] ',+[undefined]);
+       console.log('[undefined,null].toString ',[undefined,null].toString());
+
+       console.log('!!arr2 ',!!arr2);//arr2->toString->10->boolean->true
+
+       console.log('!![undefined] ',!![undefined]);
+
+    </script>    
+</html>
