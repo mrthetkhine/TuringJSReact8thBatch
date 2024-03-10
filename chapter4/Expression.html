@@ -1,0 +1,22 @@
+<html>
+    
+    <script>
+        let a = 10;
+        let b = a + 2;
+        let obj = {
+            name :'TK'
+        };
+        let arr = [10,20,30];
+
+        let hello = function()
+        {
+            console.log('Hello');
+        }
+        //hello = undefined;
+        let result = hello?.();
+        console.log('Result ',result);
+        //obj = null;
+        console.log('Name ',obj?.name);
+        console.log('Name ',obj?.['name']);
+    </script>    
+</html>

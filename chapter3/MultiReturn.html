@@ -1,0 +1,18 @@
+<html>
+    
+    <script>
+       function getMulti()
+       {
+            return [100,null];        
+       }
+       let [data,error] = getMulti();
+       console.log('Data ',data, 'Error ',error);
+
+       let arr = [10,20,30];
+       let [ , b, c] = arr;
+       console.log('B ',b, ' C ',c);
+
+       let [x, ...others] = arr;
+       console.log('X ',x, ' Others ',others);
+    </script>    
+</html>

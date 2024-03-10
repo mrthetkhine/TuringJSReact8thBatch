@@ -1,0 +1,29 @@
+<html>
+    
+    <script>
+       let a = 10;
+       let b = '10';
+
+       console.log('window.top ',window.top);
+       var top =100;
+       function hello()
+       {
+            let x ="something";
+            console.log('Hello');
+            {
+                let x = 200;
+                console.log('X ',x);
+            }
+            {
+                let x = 300;
+                console.log('X ',x);
+            }
+            console.log('X ',x);
+            //var x = 200;
+       }
+
+       hello();
+       console.log('top == 100 ',top==100);
+      
+    </script>    
+</html>

@@ -1,0 +1,33 @@
+<html>
+    
+    <script>
+       let a = 10;
+       let b = '10';
+
+       function hello()
+       {
+            console.log('Data ',data);
+            var data = 300;
+            //console.log('Another ',another);
+            console.log('Hello');
+            {
+                let x = 100;
+                const k = 300;
+                x++;
+                //k = 100;
+                var g = 200;
+                console.log('X is ',x);
+            }
+            var data = 100;//hoisting
+            console.log('Data ',data);
+            let another = 'Data';
+            //console.log('x is ',x);
+            something = 'Something';
+            console.log('G ',g);
+       }
+
+       hello();
+       console.log('Something ',something);
+       console.log('window.something ',window.something);
+    </script>    
+</html>
