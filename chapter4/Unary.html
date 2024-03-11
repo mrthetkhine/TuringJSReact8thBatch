@@ -1,0 +1,27 @@
+<html>
+    
+    <script>
+        let result = +true;
+        console.log('Result ',result);
+
+        result = +'true';
+        console.log('Result ',result);
+
+        let a = 10;
+        let b = ++a;//++a; b = a;
+        console.log('B ',b, ' A ', a);
+
+        //b =11, a = 11
+        b = a ++;// b= a; a++; 
+        console.log('B ',b, ' A ', a);
+
+        let obj = {
+            valueOf()
+            {
+                return 3;
+            }
+        }
+        obj ++;
+        console.log('Obj ',obj);
+    </script>    
+</html>
