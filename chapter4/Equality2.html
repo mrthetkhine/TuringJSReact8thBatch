@@ -11,5 +11,50 @@
         //Rule 5 & 6
         console.log('"3" == 3 ', "3" == 3);
         console.log('"" == 0 ', "" == 0);
+
+        console.log('true == "1" ', true == "1");
+        //boolean number, +true == "1"
+        //1== "1"
+        //string->number
+        // 1==1
+        let obj = {
+            valueOf()
+            {
+                return false;    
+            }
+        }
+        console.log('Obj== 0 ', obj== 0);
+        /*
+            ToPrimitive(obj)
+            false == 0
+            number(false)==0
+            0==0
+        */
+       console.log('null==false ',null == false);
+       /*
+       null == number(false)
+       null == 0
+       Rule 14
+       */
+       console.log('undefined ==false ',undefined == false);
+       /*
+        undefined == number(false);
+        undefined == 0
+        Rule 14
+       */
+      console.log('undefined ==0 ',undefined==0);
+      console.log('null ==0 ',null==0);
+      console.log('"" == undefined',""==undefined);
+      console.log('"" == null',""==null);
+      let obj2 = {
+            valueOf()
+            {
+                return false;    
+            }
+        }
+
+      console.log('obj == obj2 ',obj == obj2);
+      obj2 = obj;
+      console.log('obj == obj2 ',obj == obj2);
     </script>    
 </html>

@@ -1,0 +1,41 @@
+<html>
+    
+    <script>
+      console.log('flase || false ', false || false);
+      console.log('flase || true ', false || true);
+      console.log('true || false ', true || false);
+      console.log('true || true ', true || true);
+
+      /*
+       if(LHS is falsy)
+            return RHS
+        else 
+            return LHS
+
+      */
+
+      let obj ={};
+      console.log(' 0 || obj ', 0 || obj); //
+      console.log(' false || "hello" ', false || "hello"); 
+      console.log(' null || 123 ', null || 123); 
+      console.log(' undefined || true ', undefined || true); 
+
+      console.log('obj || flase' ,obj || false);
+      console.log('"hello" || false ','hello' || false);
+      console.log('true || false ',true || false);
+
+      window.Module = window.Module || {
+        method()
+        {
+            console.log('Our Module api');
+        }
+      }
+      window.Module = window.Module || {
+        method()
+        {
+            console.log('Redefined Module api');
+        }
+      }
+      Module.method();
+    </script>    
+</html>

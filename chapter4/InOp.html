@@ -1,0 +1,21 @@
+<html>
+    
+    <script>
+      let obj= {
+            name:'TK',
+            age : undefined,
+            valueOf()
+            {
+                return false;    
+            }
+        };
+        console.log('"name" in obj ', 'name' in obj);
+        console.log('"toString" in obj ', 'toString' in obj);
+
+        let arr = [ ,20,30];
+        console.log('0 in arr ',0 in arr);
+
+        let str = "hello";
+        console.log('age in obj ','age' in obj);
+    </script>    
+</html>

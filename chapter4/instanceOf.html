@@ -1,0 +1,22 @@
+<html>
+    
+    <script>
+      let obj= {
+            name:'TK',
+            age : undefined,
+            valueOf()
+            {
+                return false;    
+            }
+        };
+        console.log('obj instanceOf ', obj instanceof Object);
+        let date = new Date();
+        console.log('date instanceOf Object ', date instanceof Object);
+        console.log('date instanceOf Date ', date instanceof Date);
+
+        let arr = [];
+        console.log('arr instanceOf Object ', arr instanceof Object);
+        console.log('arr instanceOf Array ', arr instanceof Array);
+        console.log('arr instanceOf Date ', arr instanceof Date);
+    </script>    
+</html>

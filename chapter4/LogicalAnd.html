@@ -1,0 +1,44 @@
+<html>
+    
+    <script>
+      console.log('flase && false ', false && false);
+      console.log('flase && true ', false && true);
+      console.log('true && false ', true && false);
+      console.log('true && true ', true && true);
+
+      /*
+        0 0->0
+        0 1->0
+
+        1 0->0
+        1 1->1
+      if(LHS is falsy)
+        return LHS
+     else if(LHS is truthy)
+        return RHS
+
+      */
+
+      let obj ={};
+      console.log(' 0 && true ', 0 && true); //
+      console.log(' false && true ', false && true); 
+      console.log(' null && true ', null && true); 
+      console.log(' undefined && true ', undefined && true); 
+
+      console.log('!!obj ',!!obj);
+      console.log(' obj && true ', obj && true); 
+      console.log(' obj && [] ', obj && []); 
+      console.log(' obj && "hello" ', obj && "hello"); 
+
+      window.Module = window.Module || {};
+
+      let isRaining = true;
+      isRaining && console.log('Take umbrella');
+      /*
+      if(isRaining)
+      {
+        console.log--
+      }
+      */
+    </script>    
+</html>

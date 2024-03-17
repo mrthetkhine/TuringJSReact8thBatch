@@ -1,0 +1,25 @@
+<html>
+    
+    <script>
+      let obj= {
+            valueOf()
+            {
+                return false;    
+            }
+        };
+       console.log('3 >2 ', 3>2);
+       console.log('3 < 2 ', 3 < 2);
+       console.log('3 >= 3 ', 3>=3);
+       console.log('3 <= 3 ', 3<=3);
+
+       console.log('Obj < 1', obj < 1);
+       /*
+       ObjectToPrimitive(obj)<1
+       false <1 
+       number(false)< 1
+       0 < 1
+       */
+
+       console.log('"200">1001 ', "200" > 1001);
+    </script>    
+</html>
