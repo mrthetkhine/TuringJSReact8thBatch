@@ -1,0 +1,26 @@
+<html>
+    
+    <script>
+        let a = true;
+        let b = false;
+        
+        console.log('a ',a);
+        console.log('b ',b);          
+        console.log('a & b ',(a & b));    
+        console.log('a & b ',(a & 'false'));    
+        console.log('a & NaN',(a & NaN));    
+
+        function getTrue()
+        {
+            console.log('GetTrue');
+            return true;
+        }
+        function getFalse()
+        {
+            console.log('GetFalse');
+            return false;
+        }
+        console.log('getFalse() & getTrue ',(getFalse() & getTrue()));    
+        console.log('getFalse() && getTrue ',(getFalse() && getTrue()));    
+    </script>    
+</html>
