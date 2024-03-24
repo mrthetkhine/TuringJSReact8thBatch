@@ -1,0 +1,19 @@
+<html>
+    
+
+    <script>
+        let obj ={};//Object
+        console.log('Obj ',obj);
+        console.log('Obj ',obj.toString());
+        console.log('Object ',obj.__proto__);
+
+        let obj2 = Object.create({
+            x: 10,
+            y: 20
+        });
+        console.log('Obj2 ',obj2);
+        console.log('Obj2.x ',obj2.x);
+
+        obj2.x=100;
+    </script>    
+</html>

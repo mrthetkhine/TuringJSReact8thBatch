@@ -1,0 +1,33 @@
+<html>
+    
+
+    <script>
+        "use strict";
+        let first = {
+            x: 100,
+            y: 25,
+            arr : [10,20]
+        };
+        let second = Object.create(first);
+        let secondTwo = Object.create(first);
+        second.y = 200;
+
+        let third = Object.create(second);
+        third.z = 300;
+
+        console.log('Third ',third);
+        console.log('Third.z ',third.z);
+        console.log('Third.y ',third.y);
+        //third.y = 150;
+        first.x = 500;
+        console.log('third ',third);
+        console.log('third ',third.x);
+        third.arr.push(30);
+
+        console.log('Third.arr ',third.arr);
+        third.arr = [100];
+        console.log('Third.arr ',third.arr);
+        console.log('first.arr ',first.arr);
+        console.log('first.nothing ',first.nothing);
+    </script>    
+</html>

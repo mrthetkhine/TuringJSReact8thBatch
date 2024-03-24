@@ -1,0 +1,47 @@
+<html>
+    
+
+    <script>
+        //"use strict";
+        //eval = "hello";
+        //undefined = "Not Undefined";
+        let obj ={
+            name : "TK",
+            age : 39,
+            name: "Another"
+        }
+        console.log('Obj ',obj);
+        //let top = 10;
+        console.log('WIndow.top ',window.top);
+        console.log('Top ',top==10);
+
+        // another = "Hello";
+        //console.log('Another ',another);
+        /*
+        with(window)
+        {
+            top =100;
+        }
+        */
+       function hello(a,/*a*/)
+       {
+            //delete a;
+            console.log('Arguments ',arguments);
+            arguments[0][0] = 200;
+            console.log('THis ',this);
+       }
+       let arr = [10,20];
+       hello(arr);
+       console.log('Arr ',arr);
+       const descriptor1 = Object.getOwnPropertyDescriptor(window, 'top');
+       console.log('Descriptor ',descriptor1);
+       //top = "Hello";
+       //eval('var d = "Hello";');
+
+       //console.log('Delete ',delete top);
+       function hello(a)
+       {
+        console.log('Hello new function ',arguments.callee, ' caller ');
+       }
+    </script>    
+</html>
