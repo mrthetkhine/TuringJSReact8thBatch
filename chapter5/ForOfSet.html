@@ -1,0 +1,21 @@
+<html>
+    
+
+    <script>
+
+       let set = new Set(['one','two','three','one']);
+       console.log(set);
+       for(let word of set)
+       {
+        console.log('Word ',word);
+       }
+       let m = new Map([
+        [1, "one"],
+        [2,"two"]
+        ]);
+       for(let [key,value] of m)
+       {
+        console.log('Key ',key, ' value ',value);
+       }
+    </script>    
+</html>

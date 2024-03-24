@@ -1,0 +1,19 @@
+<html>
+    
+
+    <script>
+       outer:for(let i=0;i<4;i++)//outer 
+       {
+            console.log('Hello');
+            inner:for(let j=0;j<5;j++)//inner loop
+            {
+                if( i== 2)
+                    break outer;
+                console.log(' World');
+            }
+       }
+       another:{
+        
+       }
+    </script>    
+</html>
