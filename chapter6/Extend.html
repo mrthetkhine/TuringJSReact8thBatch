@@ -1,0 +1,26 @@
+<html>
+    
+
+    <script>
+        let target = {x: 1}, source = {y: 2, z: 3,address:{
+            city:'Ygn'
+        }};
+        for(let p in source)
+        {
+            target[p] =source[p];
+        }
+        console.log('target ',target);
+
+        let obj ={
+            x:10
+        }
+        let obj2 = Object.assign( {
+            y:20,
+            x:100
+        },obj);
+        console.log('Obj2 ',obj2);
+
+        let obj3 ={...obj,...target};
+        console.log('Obj3 ',obj3);
+    </script>    
+</html>

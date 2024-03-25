@@ -1,0 +1,39 @@
+<html>
+    
+
+    <script>
+        /*
+        let name0= 'A';
+        let name1 = 'B';
+        let name2 = 'C';
+        let name3 = 'D';
+        let name4 = 'E';  
+        */
+                  //0 ,1,2,3,  4  
+       let ages = [25,30,31,22,18];
+
+       console.log('Ages[0] ',ages[0]);
+       console.log('Ages[4] ',ages[4]);
+       let totalAge = 0;
+       for(const age of ages)
+       {
+        totalAge += age;
+       }
+       console.log('Average Age ',totalAge/ages.length);
+
+       let data = [...ages];
+       console.log('Data ',data);
+
+       let arr = new Array(10);
+       console.log('Arr ',arr);
+
+       arr = new Array(10,20,30);//size = 3
+       console.log('Arr ',arr);
+
+       arr = Array.of(10,20,40);
+       console.log('Arr ',arr);
+
+       arr = Array.from(ages);
+       console.log('Arr ',arr);
+    </script>    
+</html>

@@ -1,0 +1,19 @@
+<html>
+    
+
+    <script>
+        let source= {
+            y: 2, z: 3,
+            address:{
+                city:'Ygn'
+            },
+            x : Infinity
+        };
+        let str = JSON.stringify(source);
+        console.log('Str ',str);
+        let obj = JSON.parse(str);
+        console.log('Obj ',obj);
+
+        console.log('Obj address==source.address',obj.address === source.address);
+    </script>    
+</html>

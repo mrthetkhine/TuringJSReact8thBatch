@@ -1,0 +1,36 @@
+<html>
+    
+
+    <script>
+        let students = [
+            {
+                name :'A',
+                age : 15,
+                phones: ['1992922','0828383']
+            },
+            {
+                name :'B',
+                age : 20,
+            },
+            {
+                name :'C',
+                age : 18,
+            },
+        ];
+        console.log('Students[0].phones ',students[0].phones);
+        console.log('Students[1] ',students[1]);
+        console.log('Students[1].age ',students[1].age);
+        console.log('Students[2].phones ',students[2].phones);
+
+        console.log('Student.length ',students.length);
+        students[4] = {
+            name: 'D',
+            age: 20,
+        }
+        console.log('Student.length ',students.length);
+        console.log('Students ',students);
+
+        students.length = 2;
+        console.log('Students ',students);
+    </script>    
+</html>

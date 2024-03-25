@@ -1,0 +1,42 @@
+<html>
+    
+
+    <script>
+        let obj = {
+            name : undefined,
+            age : 39,
+            "key1":"Value1",
+            "key2":"Value2",
+            'main address':"Somewhere",
+            "address":{
+                city:"YGN"
+            }
+        };
+        console.log('Obj ',obj.name);
+        let pName ="key1";
+        console.log('Obj ',obj[pName]);
+        console.log('Obj ',obj['main address']);
+
+        let obj2= {};
+        obj2['1'] =100;
+        obj2[2]=200;
+        console.log('Obj2 ',obj2);
+
+        //obj.address.city = 'Something';
+        console.log('Obj city ',obj?.address?.city);
+        delete obj.address;
+        console.log('Obj ',obj);
+        console.log('In ', 'address' in obj);
+        console.log('In name ', 'name' in obj);
+
+        for(let prop in obj)
+        {
+            console.log('Prop ',prop)
+        }
+        console.log('isEnumberable ',obj.propertyIsEnumerable('name'));
+        console.log('isEnumberable toString ',obj.propertyIsEnumerable('toString'));
+        console.log('Keys ',Object.keys(obj));
+        console.log('values ',Object.values(obj));
+        console.log('getOwnProperty ',Object.getOwnPropertyNames(obj));
+    </script>    
+</html>

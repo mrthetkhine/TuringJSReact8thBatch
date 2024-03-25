@@ -1,0 +1,36 @@
+<html>
+    
+
+    <script>
+        let name ='TK';
+        let age = 39;
+        let obj = {
+            name: name,
+            age : age
+        };
+        obj = {
+            name,
+            age,
+        }
+        let id = 1;
+        let data = "dyanmicproperty";
+        obj = {
+            [data+id]:100
+        };
+        console.log('Obj ',obj);
+
+        let obj2 = {
+            x : 10,
+            y : 20
+        };
+        let obj3 = {
+            z : 100,
+            y:200
+        }
+        let obj4 = {
+            ...obj2,
+            ...obj3
+        };
+        console.log('Obj4 ',obj4);
+    </script>    
+</html>

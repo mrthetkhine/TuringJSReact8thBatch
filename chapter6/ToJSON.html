@@ -1,0 +1,23 @@
+<html>
+    
+
+    <script>
+        let source= {
+           username:'tk',
+           secrteKey:'nothing',
+           toJSON()
+           {
+                console.log('toJSON called');
+                return{
+                    name:this.username
+                }
+           },
+        };
+        let str = JSON.stringify(source);
+        console.log('Str ',str);
+        let obj = JSON.parse(str);
+        console.log('Obj ',obj);
+
+        
+    </script>    
+</html>
