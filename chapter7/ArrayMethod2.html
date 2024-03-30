@@ -1,0 +1,43 @@
+<html>
+    
+
+    <script>
+        let arr = [];
+        arr.push(10);
+        arr.push(20);
+        console.log('Arr ',arr);//10,20
+
+        console.log('pop ',arr.pop());//20
+        console.log('pop ',arr.pop());//10
+
+        let strArr = ['Hello','Hi','How are you'];
+
+        function getLength(str)
+        {
+            return str.length;
+        }
+        let lengthArr = strArr.map(str=>str.length);
+        console.log('Length arr ',lengthArr);
+
+        let lengths = [];
+        for(let str of strArr)
+        {
+            lengths.push(str.length);
+        }
+        console.log('Lengths ',lengths);
+
+        let nums = [10,2,3,5];
+        let evenList = nums.filter(num=>num %2==0);
+        console.log('Even list ',evenList);
+
+        let total = nums.reduce( function(a,b)
+        {
+            console.log('A ',a, ' B ',b);
+            return a+b;
+        })
+        console.log('Total ',total);
+
+        let min = nums.reduce( (a,b)=>a <b?a:b);
+        console.log('Min ',min);
+    </script>    
+</html>

@@ -1,0 +1,26 @@
+<html>
+    
+
+    <script>
+        let arr = [10,20,3,1,6];
+        let arr2 = arr.concat([20,30]);
+        console.log('Arr ',arr);
+        console.log('Arr2 ',arr2);
+
+        arr.unshift(5);
+        arr.unshift(10);
+        console.log('Arr ',arr);
+        console.log('Arr.shift() ',arr.shift());
+
+        arr = [10,20,3,1,6];
+        console.log('slice(2) ',arr.slice(2));
+        console.log('slice(2,4) ',arr.slice(2,4));// newArr[index] = oldArray[index]
+
+        arr.splice(1,2,30,40);
+        console.log('Arr ',arr);
+
+        let index = arr.findIndex(item=>item==1);
+        arr.splice(index,1);
+        console.log('Arr ',arr);
+    </script>    
+</html>

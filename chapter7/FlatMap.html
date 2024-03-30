@@ -1,0 +1,13 @@
+<html>
+    
+
+    <script>
+        let arr = [10,20,3,1,6];//[10,100,20,400]
+        let arr2 = arr.map(item=>[item,item*item]).flat();
+        console.log('Arr2 ',arr2);
+
+        console.log('FlatMap ',arr.flatMap(item=>[item,item*2]));
+
+        console.log('flat ',[1,[1,2,3,[4]]].flat(2));
+    </script>    
+</html>

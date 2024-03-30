@@ -1,0 +1,33 @@
+<html>
+    
+
+    <script>
+        let arr = [];
+        arr.push(10);
+        arr.push(20);
+        console.log('Arr ',arr);
+
+        console.log('pop ',arr.pop());
+        console.log('pop ',arr.pop());
+
+        arr = [2,3,4,5,6];
+        for(const item of arr)//item=arr[i]
+        {
+            console.log('Item ',item);
+            //item *= 2;
+        }
+        console.log('Arr ',arr);
+        for(let i=0;i<arr.length;i++)
+        {
+            arr[i]*=2;
+        }
+        console.log('Arr ',arr);
+        console.log('Entries ',arr.entries());
+
+        for(const [index,value] of arr.entries())//item=arr[i]
+        {
+            arr[index] = value * 2;
+        }
+        console.log('Arr ',arr);
+    </script>    
+</html>

@@ -1,0 +1,25 @@
+<html>
+    
+
+    <script>
+
+        //month-> 5 []
+        let arr = [
+            [10,20,30],
+            [40,50,60],
+            [70,80, 90,100]
+        ];
+        //console.log('Arr[2][2][2] ',arr[2][2][2]);
+
+        let totalLength = 0;
+        for(let i=0; i < arr.length; i++)
+        {
+            totalLength+= arr[i].length;
+            for(let j=0;j < arr[i].length;j++)
+            {
+                console.log('Arr ['+i+','+j+'] ',arr[i][j]);
+            }
+        }
+        console.log('Total length ',totalLength);
+    </script>    
+</html>

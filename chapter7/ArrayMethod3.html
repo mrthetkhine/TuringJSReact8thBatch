@@ -1,0 +1,19 @@
+<html>
+    
+
+    <script>
+        let arr = [10,20,3,1,6];
+        let index = arr.indexOf(1);
+        console.log('Index ',index);
+
+        const isOdd = item=>item %2 !=0;
+        let item = arr.find(isOdd);
+        console.log('First odd ',item);
+
+        index = arr.findIndex(isOdd);
+        console.log('First odd index ',index);
+
+        console.log('isOdd every ',arr.every(isOdd));
+        console.log('isOdd some ',arr.some(isOdd));
+    </script>    
+</html>
