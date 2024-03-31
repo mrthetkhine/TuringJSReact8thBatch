@@ -1,0 +1,54 @@
+<html>
+    
+
+    <script>
+        let arr = [10,1,112,20];
+
+        arr.sort((a,b)=> a-b);
+
+        console.log('Arr ',arr);
+        let students = [
+            {
+                name : 'Hla Hla',
+                gender : 'Female',
+                age : 24,
+            },
+            {
+                name : 'Tint Tint',
+                gender : 'Female',
+                age : 20,
+            },
+            {
+                name : 'Aung Hla',
+                gender : 'Male',
+                age : 22,
+            },
+            {
+                name : 'Aye Mya',
+                gender : 'Female',
+                age : 20,
+            },
+            {
+                name : 'Mya Mg',
+                gender : 'Male',
+                age : 30,
+            },
+            
+        ];
+        /*
+        students.sort( (a,b)=>{
+            if(a.age-b.age==0)
+            {
+                return a.name.localeCompare(b.name);
+            }
+            else
+            {
+                return a.age-b.age;
+            }
+        });
+        */
+        students.sort((a,b)=>b.age-a.age);
+        students.reverse();
+        console.log('Students ',students);
+    </script>    
+</html>

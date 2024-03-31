@@ -1,0 +1,39 @@
+<html>
+    
+
+    <script>
+      
+        let circle = {
+            radius: 20,
+            get area()
+            {
+                console.log('Area');
+                return Math.PI * this.radius * this.radius;
+            }
+        };
+        console.log(circle.area);
+
+        function hello()
+        {
+            console.log('Hello');
+        }
+        hello();
+        window.hello();
+        window['hello']();
+        this.hello();
+        this['hello']();
+        window.hello.call();
+        window['hello'].call();
+        window.hello.apply();
+        window['hello'].apply();
+        window.hello.bind()();
+        window['hello'].bind()();
+
+        this.hello.call();
+        this['hello'].call();
+        this.hello.apply();
+        this['hello'].apply();
+        this.hello.bind()();
+        this['hello'].bind()();
+    </script>    
+</html>

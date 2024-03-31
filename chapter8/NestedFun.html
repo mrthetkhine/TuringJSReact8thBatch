@@ -1,0 +1,16 @@
+<html>
+    
+
+    <script>
+        function outer()
+        {
+            function inner()
+            {
+                console.log('Inner');
+            }
+            console.log('Outer invoked');
+            inner();
+        }
+        outer();
+    </script>    
+</html>
