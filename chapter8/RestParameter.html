@@ -1,0 +1,23 @@
+<html>
+    
+
+    <script>
+      
+        function max(first,...numbers)
+        {
+            console.log('isArray ',Array.isArray(numbers));
+            console.log('Numbers ',numbers);
+            return Math.max(...numbers);
+        }
+        console.log('Max ',max(3,1,-5));
+        console.log('Max ',max(3,1,-5,5,0));
+        console.log('Max ',max(3,1));
+
+        function maxOld()
+        {
+          console.log('Arguments ',arguments);
+          return Math.max.apply(null,arguments);
+        }
+        console.log('maxOld ',maxOld(1,'2',3,'4'));
+    </script>    
+</html>

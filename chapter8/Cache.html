@@ -1,0 +1,32 @@
+<html>
+    
+
+    <script>
+
+        factorial.cache = {};
+        //4!= 4 * 3* 2* 1;
+       function factorial(n)
+       {
+            
+            if(factorial.cache[n])
+            {
+                return factorial.cache[n];
+            }
+            else
+            {
+                console.log('Compute fact ',n);
+                let result = 1;
+                for(let i=1;i<=n;i++)
+                {
+                    result *= i;
+                }
+                factorial.cache[n] = result;
+                return result;
+            } 
+            
+       }
+       console.log('Factor 4 ',factorial(4));
+       console.log('Factor 5 ',factorial(5));
+       console.log('Factor 4 ',factorial(4));
+    </script>    
+</html>

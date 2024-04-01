@@ -1,0 +1,29 @@
+<html>
+    
+
+    <script>
+      
+        //function as value, first class function
+        //Rule 1
+        function hello()
+        {
+            console.log('Hello');
+        }
+        let fun = hello;
+        fun();
+
+        //Rule 2
+        function getFun(fn)
+        {
+            fn();
+        }
+        getFun(hello);
+
+        //Rule 3
+        function getFun2()
+        {
+            return hello;
+        }
+        getFun2()();
+    </script>    
+</html>

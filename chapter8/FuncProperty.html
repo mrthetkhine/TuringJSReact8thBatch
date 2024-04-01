@@ -1,0 +1,26 @@
+<html>
+    
+
+    <script>
+
+       function hello()
+       {
+            console.log('Hello');
+       }
+       console.log('Typeof ',typeof hello);
+       console.log('instanceof ', hello instanceof Object);
+       console.log('Hello.name ',hello.name, ' Length ',hello.length);
+
+       hello.something = "something";
+       console.log('Hello.something ',hello.something);
+
+       unique.counter = 0;
+       function unique()
+       {
+            return unique.counter++;
+       }
+       console.log('unique ',unique());
+       console.log('unique ',unique());
+       console.log('unique ',unique());
+    </script>    
+</html>

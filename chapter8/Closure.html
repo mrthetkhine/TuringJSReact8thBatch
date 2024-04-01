@@ -1,0 +1,25 @@
+<html>
+    
+    
+    <script>
+        //close over->closure
+        function unique()//outer
+        {
+            let counter = 0;
+            return function inner()
+            {
+                return counter++;
+            }        
+        }
+        let id = unique();
+        console.log('typeof id ',typeof id);
+        console.log('id ',id());
+        console.log('id ',id());
+        console.log('id ',id());
+
+        let another = unique();
+        console.log('Another ',another());
+        console.log('Another ',another());
+        console.log('Another ',another());
+    </script>    
+</html>

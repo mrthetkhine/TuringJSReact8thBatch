@@ -1,0 +1,40 @@
+<html>
+    
+
+    <script>
+
+        function check(fn)
+        {
+            return function(...rest)
+            {
+                //console.log('Fn ',fn.name, ' Length ',fn.length , ' Arg length ',rest.length);
+                if(rest.length< fn.length)
+                {
+                    console.warn('Function ',fn.name, ' expect ', fn.length,' but found ',rest.length);
+                }
+                return fn(...rest);
+            }
+        }
+      
+        function double(a)
+        {
+            return a*a;
+        }
+        function process(a,b)
+        {
+            console.log('A ',a, ' B ',b);
+        }
+        /*
+        process();
+        process(10);
+        process(20,30);
+        */
+       let doubleWithCheck = check(double);
+       console.log('DoubleWithCheck ',doubleWithCheck());
+       console.log('DoubleWithCheck ',doubleWithCheck(2));
+
+       let processWithCheck = check(process);
+       console.log('Process ',processWithCheck(1));
+       console.log('Process ',processWithCheck(10,20));
+    </script>    
+</html>

@@ -1,0 +1,20 @@
+<html>
+    
+    
+    <script>
+        function Counter()
+        {
+            this.counter = 0;
+            this.unique = function()
+            {
+                return this.counter++;
+            }
+        }
+        let id = new Counter();
+        
+        console.log('Id ',id.unique());
+        id.counter = 3;
+        console.log('Id ',id.unique());
+        console.log('Id ',id.unique());
+    </script>    
+</html>
