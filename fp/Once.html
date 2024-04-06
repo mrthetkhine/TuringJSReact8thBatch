@@ -1,0 +1,47 @@
+<html>
+    
+    
+    <script>
+        /*
+        let done = false;
+        function payment()
+        {
+            if(!done)
+            {
+                
+                console.log('Payment');
+                done =true;
+            }
+            
+        }*/
+        function payment(card)
+        {
+            console.log('Payment ',card);
+        }
+        function another()
+        {
+            console.log('Another');
+        }
+        //payment();
+        //payment();
+
+        function once(fn)
+        {
+            let done = false;
+            return function(...args)
+            {
+                if(!done)
+                {
+                    done = true;
+                    return fn(...args);
+                }
+            }
+        }
+        payment = once(payment);
+        payment('A');
+        payment('A');
+        another = once(another);
+        another();
+        another();
+    </script>    
+</html>

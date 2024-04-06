@@ -1,0 +1,51 @@
+<html>
+    
+    
+    <script>
+        /*
+        let done = false;
+        function payment()
+        {
+            if(!done)
+            {
+                
+                console.log('Payment');
+                done =true;
+            }
+            
+        }*/
+        function payment(card)
+        {
+            console.log('Payment ',card);
+        }
+        function another()
+        {
+            console.log('Another');
+        }
+        //payment();
+        //payment();
+
+        function onceAndAfter(fn,after)
+        {
+            let done = false;
+            return function(...args)
+            {
+                if(!done)
+                {
+                    done = true;
+                    return fn(...args);
+                }
+                else
+                {
+                    return after(...args);
+                }
+            }
+        }
+        payment = onceAndAfter(payment,()=>console.log('Payment have been called previously'));
+        payment('A');
+        payment('A');
+        another = onceAndAfter(another,()=>console.log('Another have been called previously'));
+        another();
+        another();
+    </script>    
+</html>

@@ -1,0 +1,13 @@
+<html>
+    
+    
+    <script>
+        function constfunc(v) { return () => v; };
+        console.log(constfunc(10)());
+        let funcs = [];
+        for(let i = 0; i < 10; i++) 
+            funcs[i] =()=>i;
+
+        console.log('funcs 5 ',funcs[5]());
+    </script>    
+</html>
