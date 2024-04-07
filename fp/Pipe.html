@@ -1,0 +1,26 @@
+<html>
+    
+    
+    <script>
+       
+       function length(str)
+       {
+            return str.length;
+       }
+       
+        function pipe(funcA,funcB)
+        {
+            return function(x)
+            {
+                return funcB(funcA(x));
+            }
+        }
+        let add1 = (x)=> x+1;
+        let double = (x)=> x* x;
+        let log = (x)=>console.log(x);
+
+        let newFunc =  pipe(add1,double);
+        let newFunc2 = pipe(length,newFunc);
+        console.log('newFun ',newFunc2('hello'));
+    </script>    
+</html>

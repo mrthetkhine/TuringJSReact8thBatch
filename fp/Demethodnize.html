@@ -1,0 +1,20 @@
+<html>
+    
+    
+    <script>
+       
+       const demethodize = fn => (arg0, ...args) => fn.apply(arg0, args);
+       const name = "functional";
+       const result = name.split("").map(x => x.toUpperCase());
+       console.log('result ',result);
+
+       const map = demethodize(Array.prototype.map);
+       const toUpperCase = demethodize(String.prototype.toUpperCase);
+
+       const result2 = map(name, toUpperCase);
+       console.log('Result 2 ',result2);
+
+       console.log(Array.prototype.map.apply("hello",[(x)=>x.toUpperCase()]));
+
+    </script>    
+</html>

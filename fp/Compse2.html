@@ -1,0 +1,26 @@
+<html>
+    
+    
+    <script>
+       
+       function length(str)
+       {
+            return str.length;
+       }
+       
+        function compose(funcA,funcB)
+        {
+            return function(x)
+            {
+                return funcA(funcB(x));
+            }
+        }
+        let add1 = (x)=> x+1;
+        let double = (x)=> x* x;
+        let log = (x)=>console.log(x);
+
+        let newFunc =  compose(log,compose(double,add1));
+        let newFunc2 = compose(newFunc,length);
+        console.log('newFun ',newFunc2('hello'));
+    </script>    
+</html>

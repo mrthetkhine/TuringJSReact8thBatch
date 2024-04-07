@@ -1,0 +1,37 @@
+<html>
+    
+    
+    <script>
+       
+        function payment(card)
+        {
+            console.log('Payment ',card);
+            return "success";
+        }
+        function another()
+        {
+            console.log('Another');
+        }
+        //HOF
+        function logger(fn)
+        {
+            return function(...args)
+            {
+                console.log('Function ',fn.name, 'called with ',args);
+                let ret = fn(...args);
+                console.log('Function ',fn.name , ' return ',ret);
+                return ret;
+            }
+        }
+        const withLogger = (fn,log=console.log)=>(...args)=>{
+            log('Function ',fn.name, 'called with ',args);
+            let ret = fn(...args);
+            log('Function ',fn.name , ' return ',ret);
+            return ret;
+        }
+        let paymentWithLogger = withLogger(payment,console.warn);
+        let anotherWithLogger = withLogger(another);
+        paymentWithLogger('Card-A');
+        anotherWithLogger();
+    </script>    
+</html>
