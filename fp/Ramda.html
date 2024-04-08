@@ -1,0 +1,31 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        console.log('R.identity ',R.identity(4));
+        console.log('R.add(1) ',R.add(1));
+        console.log('R.add(1)(2) ',R.add(1)(2));
+        
+        const equals3 = R.equals(3);
+        console.log('Equals3 ',equals3);
+        
+        let arr = [3,3,3];
+        console.log('R.all ',R.all(equals3)(arr));
+      
+        //x = a=>a / 2 + 3  = 
+        // a / b
+     
+        
+        let list = [1,2,3,4,5];
+        const average = R.converge(R.divide, [R.sum, R.length]);
+        console.log('Average ',average(list));
+    
+        const even = x => x % 2 == 0;
+        const noOfEven = R.count(even)(list);
+        console.log('No Of even ',noOfEven);
+
+        const defaultTo42 = R.defaultTo(42);
+        console.log('DefaultTo ',defaultTo42(null));
+        console.log('DefaultTo ',defaultTo42(10));
+        
+    </script>
+</html>

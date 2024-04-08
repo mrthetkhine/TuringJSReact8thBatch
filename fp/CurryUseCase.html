@@ -1,0 +1,17 @@
+<html>
+    
+    
+    <script>
+       
+       function api(url)
+       {
+            return function(method)
+            {
+                console.log('Api ',url, ' Method ',method);
+            }
+       }
+       let api1 = api('http://www.api.com');
+       api1('GET');
+       api1('POST');
+    </script>    
+</html>

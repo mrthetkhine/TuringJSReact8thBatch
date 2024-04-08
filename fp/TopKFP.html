@@ -1,0 +1,66 @@
+<html>
+    
+    
+    <script>
+       
+       function pipe(...fns)
+       {
+            return function(x)
+            {
+                return fns.reduce((input,fn)=> fn(input),x);
+            } 
+       }
+       let nums = [2,2,1,1,1,2,2,3], k = 2;
+
+       function groupByKey(arr)
+       {
+        
+        return arr.reduce((group,item)=>{
+            //console.log('Group ',group, ' Item ',item);
+            /*
+            if(group[item])
+            {
+                group[item]++;
+            }
+            else
+            {
+                group[item]=1;
+            }*/
+            return (group[item])?
+                        (group[item]++,group):(group[item]=1,group);
+        },{});
+       
+       }
+      function sort(arr)
+      {
+        arr.sort((a,b)=>b[1]-a[1]);
+        return arr;
+      }
+      function getFirstElements(arr)
+      {
+        return arr.map(item=>item[0]);
+      }
+      function tap(fn)
+      {
+        return function (x)
+        {
+            fn(x);
+            return x;
+        }
+      } 
+      const log = tap(console.log);
+      const topK = pipe(groupByKey,
+                            log,
+                            Object.entries,
+                            log,
+                            sort,
+                            log,
+                            getFirstElements,
+                            log);
+      let frequent = topK(nums);
+      console.log('TopK ',frequent)
+
+      frequent.length = k;
+      console.log('Frequent item ',frequent);
+    </script>    
+</html>

@@ -1,0 +1,34 @@
+<html>
+    
+    
+    <script>
+       
+       function pipe(...fns)
+       {
+            return function(x)
+            {
+                return fns.reduce((input,fn)=> fn(input),x);
+            } 
+       }
+       function compose(...fns)
+       {
+            return function(x)
+            {
+                return fns.reduceRight((input,fn)=> fn(input),x);
+            } 
+       }
+       function length(str)
+       {
+            return str.length;
+       }
+       
+        
+        let add1 = (x)=> x+1;
+        let double = (x)=> x* x;
+        let log = (x)=>console.log(x);
+
+        let newFunc =  pipe(length,add1,double);
+        
+        console.log('newFun ',newFunc('hello'));
+    </script>    
+</html>
