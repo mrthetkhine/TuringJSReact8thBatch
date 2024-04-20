@@ -1,0 +1,30 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        let obj = {
+            name : 'tk',
+            age : 39,
+            /*
+            address: {
+                city: 'YGN',    
+            }*/
+        };
+        console.log('R.prop',R.prop('name')(obj));
+
+        console.log('R.path',R.path(['address','city'])(obj));
+
+        let obj2 = R.assoc('antother','value',obj);
+        console.log('Obj2 ',obj2);
+        let obj3= R.assocPath(['address','city','township'],'somewhere',obj);
+        console.log('Obj3 ',obj3);
+
+        const nameLens = R.lens(R.prop('name'), R.assoc('name'));
+        console.log('View ',R.view(nameLens)(obj));
+
+        let obj4 = R.set(nameLens,'Change')(obj);
+        console.log('Obj4 ',obj4);
+
+        let obj5 = R.over(nameLens,R.toUpper,obj);
+        console.log('Obj5 ',obj5);
+    </script>
+</html>

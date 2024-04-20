@@ -1,0 +1,35 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        const k = 2;
+        let nums =[1,2,1,1,1,2,2,3,4,3,3,2,2,2];
+
+        /*
+        let frequency = R.countBy(R.identity)(nums);
+        console.log('Frequency ',frequency);
+        let frequencyArr = Object.entries(frequency);
+        console.log('Frequency Arr ',frequencyArr);
+        let tops = R.sort((a,b)=> b[1]-a[1])(frequencyArr);
+        console.log('topK ',tops);
+
+        tops = R.map(item=>item[0])(tops);
+        let topK = R.take(2,tops);
+        console.log('topK ',topK);
+        */
+        const log = R.tap(console.log);
+
+        const topK = R.pipe(
+            R.countBy(R.identity),
+            log,
+            Object.entries,
+            log,
+            R.sort((a,b)=> b[1]-a[1]),
+            log,
+            R.map(item=>item[0]),
+            log,
+            R.take(2),
+            log,
+        );
+        console.log('TopK ',topK(nums));
+    </script>
+</html>

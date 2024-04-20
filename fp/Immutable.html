@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        let obj = {
+            name : 'TK',
+            age : 39,
+            address: {
+                city: 'YGN',    
+            }
+        };
+        Object.freeze(obj);    
+        obj.age = 100;
+        console.log('Obj ',obj);
+        let obj2 = {...obj};
+        console.log('Obj2 ',obj2);
+
+        const getField = (fieldName)=>(obj)=>obj[fieldName];
+        console.log('GetField ', getField('name')(obj));
+
+        //obj.address.city = "MDY"
+        const setField = (fieldName)=>(value)=>(obj)=>({
+            ...obj,
+            [fieldName]:value
+        });
+        let obj3 = setField('name')('Change')(obj);
+        console.log('Obj3 ',obj3);
+        console.log('Obj ',obj);
+    </script>
+</html>

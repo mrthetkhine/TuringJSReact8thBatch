@@ -1,0 +1,29 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        function factorial(n)
+        {
+            if(n==0)
+            {
+                return 1;
+            }
+            else
+            {
+                return n * factorial(n-1);
+            }
+        }
+        console.log('fact(4) ',factorial(4));
+        const log = R.tap(console.log);
+        const ramdaFac = (n) => R.reduce(R.multiply,1 )(R.range(1,n+1));
+        const fact2 = (n)=> R.pipe(
+                        R.inc,
+                        log,
+                        R.range(1),
+                        log,
+                        R.reduce(R.multiply,1 )
+        )(n);
+
+        console.log('RandomFa ',ramdaFac(4));
+        console.log('Fac2 ',fact2(4));
+    </script>
+</html>
