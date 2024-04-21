@@ -1,0 +1,38 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        const inc = (x)=>x+1;
+        //let count = 0;
+        //let count2 = inc(count);
+        const double = (x)=>x*2;
+        let Container = (value)=>({
+            value,
+            map(fn)
+            {
+                return Container(fn(value));
+            },
+            valueOf()
+            {
+                return value;
+            }
+        });
+        let identity =(x)=>x;
+        let count = Container(10);
+        console.log('Count ',count);
+
+        let count2 = count.map(inc)
+                          .map(double);
+        console.log('Count2 ',count2);
+
+        //Rule 1
+        console.log('Rule 1 ',count.map(identity).value ==count.value);
+
+        //Rule 2
+        const pipe = (funA)=>(funB)=>x=> funB(funA(x));
+        let newFunc = pipe(inc)(double);
+        let count3 = count.map(newFunc);
+        let count4 = count.map(inc)
+                            .map(double);
+        console.log('Rule 2 ',count3.value == count4.value);      
+    </script>
+</html>

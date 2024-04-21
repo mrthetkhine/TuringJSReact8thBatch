@@ -1,0 +1,24 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+        let obj ={
+            username: 'TK',
+            email :'me@gmail.com'
+        };
+        //min lenght, maxlength,
+        //email valid?
+        //[UserNameValidator,EmailValidator,]
+       
+        const minLength = (length)=>(str)=>str.length>= length;
+        const maxLength = (length)=>(str)=>str.length<= length;
+        const validEmail = (email)=> email.includes('@');
+        console.log('minlength 3 hello',minLength(3)('hel'));
+        console.log('minlength 2 h',minLength(2)('h'));
+
+        console.log('maxlength 2 hi',maxLength(2)('hi'));
+        console.log('maxlength 2 hello',maxLength(2)('hello'));
+
+        console.log('valid email ',validEmail(obj.email));
+        console.log('valid email empty ',validEmail(''));
+    </script>
+</html>

@@ -1,0 +1,58 @@
+<html>
+    <script src="MayBe.js"></script>
+    <script>
+        
+        let employees = {
+                1: {
+                    id: 1,
+                    name:'Emp1',
+                    
+                },
+                2:{
+                    id:2,
+                    name:'Emp2',
+                    supervisor : 1,
+                },
+                3:{
+                    id:3,
+                    name:'Emp3',
+                    supervisor : 1,
+                },
+                4:{
+                    id:4,
+                    name:'Emp4',
+                    supervisor : 2,
+                }
+            };
+            function getSupervisorName(id)
+            {
+                let emp = employees[id];
+                if(emp)
+                {
+                    let supervisorId = emp.supervisor;
+                    if(supervisorId)
+                    {
+                        let supervisor = employees[supervisorId];
+                        return supervisor;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            const getEmployee =(id)=>employees[id];
+            const getSupervisorId = (employee)=>employee.supervisor;
+
+            const result = MayBe.of(3)
+                                .map(getEmployee)
+                                .map(getSupervisorId)
+                                .map(getEmployee);
+            console.log('Result ',result);
+
+    </script>
+</html>

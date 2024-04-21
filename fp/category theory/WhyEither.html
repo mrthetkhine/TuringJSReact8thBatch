@@ -1,0 +1,96 @@
+<html>
+    <script src="MayBe.js"></script>
+    <script>
+        /*
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                throw new Error('A or b is NaN');
+            }
+            else
+            {
+                return a/b;
+            }
+        }
+        try
+        {
+            div(10,NaN);
+        }
+        catch(e)
+        {
+            console.log(e);
+        }*/
+        //Failure
+        const Left =(value)=>({
+                value,
+                map(fn)
+                {
+                    return Left.of(value);
+                },
+                matchWith(context)//{left:()=>,right:()=>}
+                {
+                    return context.left(value);
+                },
+                valueOf()
+                {
+                    return value;
+                }
+            });
+        Left.of = Left;
+        //Success
+        const Right =(value)=>({
+            value,
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            matchWith(context)
+            {
+                //console.log('Sucess ',context);
+                return context.right(value);
+            },
+            valueOf()
+            {
+                return value;
+            }
+        });
+        Right.of = Right;
+    
+        function div(a,b)
+        {
+            if(isNaN(a) || isNaN(b))
+            {
+                return Left.of('A or b is NaN');
+            }
+            else
+            {
+                return Right.of(a/b);
+            }
+        }
+        /*
+        try
+        {
+            result = div(10,NaN)
+        }
+        catch(e)
+        {
+            result = 1;
+           
+        }
+         inc=(result)
+        */
+        const inc = (x)=>x+1;
+        let result = div(10,NaN)
+                        .matchWith({
+                            left:(error)=>Right.of(0),
+                            right:(result)=>Right.of(result)
+                        })
+                        .map(inc)
+                        .matchWith({
+                            left:(error)=>console.log('Failed ',error),
+                            right:(result)=>console.log('Success ',result)
+                        });
+
+    </script>
+</html>
