@@ -1,0 +1,151 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    
+    <script>
+
+const Left =(value)=>({
+                value,
+                isLeft()
+                {
+                    return true;
+                },
+                map(fn)
+                {
+                    return Left.of(value);
+                },
+                matchWith(context)//{left:()=>,right:()=>}
+                {
+                    return context.left(value);
+                },
+                valueOf()
+                {
+                    return value;
+                },
+                and(other)
+                {
+                    return other.isLeft()? 
+                            Left.of([...value,...other.value]):
+                            Left.of(value);
+                },
+                or(other)
+                {
+                    //console.log('Value ',value);
+                    return other.isLeft()? 
+                            Left.of([...value,...other.value]):
+                            Right.of(value);
+                }
+            });
+        Left.of = Left;
+        //Success
+        const Right =(value)=>({
+            value,
+            isLeft()
+            {
+                return false;
+            },
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            matchWith(context)
+            {
+                //console.log('Sucess ',context);
+                return context.right(value);
+            },
+            valueOf()
+            {
+                return value;
+            },
+            and(other)
+            {
+                return !other.isLeft()?Right.of(value):other;
+            },
+            or(other)
+            {
+                return Right.of(value);
+            }
+        });
+        Right.of = Right;
+
+        let obj ={
+            username: 'T K',
+            email :'me@gmail.com'
+        };
+        //min lenght, maxlength,
+        //email valid?
+        //[UserNameValidator,EmailValidator,]
+       
+        const notEmpty = (input)=>input !='';
+        const minLength = (length)=>(str)=>str.length>= length;
+        const maxLength = (length)=>(str)=>str.length<= length;
+        const validEmail = (email)=> email.includes('@');
+       
+       const userNameNotEmpty = (obj)=> notEmpty(obj.username);
+       const emailNotEmpty = (obj)=>notEmpty(obj.email);
+       const userEmailValid = (obj)=>validEmail(obj.email);
+       const userNameMinLength = (obj)=>minLength(3)(obj.username);
+       const userNameMaxLength = (obj)=>maxLength(10)(obj.username);
+
+       function enrich(validationFn,errorMessage)
+       {
+        return function(input)
+        {
+            return validationFn(input)?Right.of(input):Left.of([errorMessage]);
+        }
+       }
+       const userNameNotEmptyV2 = enrich(userNameNotEmpty,'Username not empty');
+       const emailNotEmptyV2 = enrich( emailNotEmpty ,'Email not empty'); 
+       const userEmailValidV2 = enrich(userEmailValid, 'User Email invlaid')
+       const userNameMinLengthV2 = enrich(userNameMinLength, 'User name min must be 3');
+       const userNameMaxLengthV2 = enrich(userNameMaxLength,'Username max length is 10');
+       
+       //and,or
+       function andCombinator(validationFns)
+       {
+            return function(input)
+            {
+                return validationFns.reduce((validationResult,fn)=>{
+                    return validationResult.and(fn(input));
+                },Right.of(input));
+            }   
+       }
+       
+       function orCombinator(validationFns)
+       {
+            return function(input)
+            {
+                return validationFns.reduce((validationResult,fn)=>{
+                    return validationResult.or(fn(input));
+                },Left.of([]));
+            }   
+       }
+       let validate = andCombinator([
+                            userNameNotEmptyV2,
+                            userNameMinLengthV2,
+                            userNameMaxLengthV2,
+                            emailNotEmptyV2,
+                            userEmailValidV2
+                        ]);
+       validate({
+            username:'notblank',
+            email:'email',
+       }).matchWith({
+        left:(error)=>console.log('Validation failed ',error),
+        right:(data)=>console.log('Validation sucess ',data),
+       });
+       
+       let orValidator = orCombinator(
+                    [ 
+                        userNameNotEmptyV2,
+                        emailNotEmptyV2
+                    ]);
+       orValidator({
+        username:'ee',
+        email:''
+       }).matchWith({
+        left:(error)=>console.log('Validation failed ',error),
+        right:(data)=>console.log('Validation sucess ',data),
+       });
+       
+    </script>
+</html>

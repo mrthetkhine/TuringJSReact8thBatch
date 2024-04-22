@@ -1,0 +1,44 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+       
+       let arr = [1,2,3];
+       let arr2 = arr.flatMap(x=>[x, x*x]);
+                   
+       console.log('Arr2 ',arr2); 
+       let Container = (value)=>({
+            value,
+            map(fn)
+            {
+                return Container(fn(value));
+            },
+            flatMap(fn)
+            {
+                return fn(value);
+            },
+            ap(container) //Contianer(fn)
+            {
+                return container.map(value);
+            },
+            valueOf()
+            {
+                return value;
+            }
+        });
+        Container.of = Container;
+
+        const add = (x)=>(y)=> x+y;
+        const double = (x)=> x* 2;//normal function
+        const monadicFun = (x)=>Container.of(x+1);
+        let count = Container.of(2)
+                             .map(add)   //Contianer(add(2))
+                             .ap(Container.of(3))
+                             .flatMap(monadicFun);//Container(Container())
+        console.log('Count ',count);
+       /*
+       Promise.resolve(10)
+              .then(x=> Promise.resolve(x*2))  
+              .then(console.log);
+        */
+    </script>
+</html>
