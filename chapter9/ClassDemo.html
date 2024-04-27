@@ -1,0 +1,48 @@
+<html>
+
+<script>
+    class Human
+    {
+        constructor(name,age)
+        {
+            console.log('Human Constructor ');
+            this.name = name;
+            this.age = age;
+        }
+        display()
+        {
+            console.log('Name ',this.name, ' Age',this.age);
+        }
+        work()
+        {
+            console.log('Name ',this.name , ' Work');
+        }
+    }
+
+    class Doctor extends Human
+    {
+        constructor(name,age,speciality)
+        {
+            super(name,age);
+            this.speciality = speciality;
+            console.log('Doctor Constructor ');
+        }
+        work()
+        {
+            super.work();
+            console.log(this.name , ' treat patient for ',this.speciality);
+        }
+    }
+    let obj = new Human('TK',39);
+    obj.display();
+    obj.work();
+    console.log('Obj instanceof Human ',obj instanceof Human);
+    console.log('Obj instanceof Object ',obj instanceof Object);
+
+    let obj2 = new Doctor('Dr Zar Ni',30,'General health');
+    obj2.display();
+    obj2.work();
+    
+</script>
+
+</html>

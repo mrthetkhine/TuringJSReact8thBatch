@@ -1,0 +1,48 @@
+<html>
+
+<script>
+    class Human
+    {
+        constructor(name,age)
+        {
+            console.log('Human Constructor ');
+            this.name = name;
+            this._age = age;
+        }
+        set age(newAge)
+        {
+            console.log('Setter ',newAge);
+            if(newAge>0 && newAge<100)
+            {
+                this._age= age;
+            } 
+        }
+        display()
+        {
+            console.log('Name ',this.name, ' Age',this.age);
+        }
+        work()
+        {
+            console.log('Name ',this.name , ' Work');
+        }
+    }
+    let obj = new Human('TK',39);
+    obj.age= 100;
+    console.log('Obj ',obj);
+
+    class Circle
+    {
+        constructor(radius)
+        {
+            this.radius = radius;
+        }
+        get area()
+        {
+            return Math.PI * this.radius * this.radius;
+        }
+    }
+    let circle = new Circle(30);
+    console.log('Circle.area ',circle.area);
+</script>
+
+</html>

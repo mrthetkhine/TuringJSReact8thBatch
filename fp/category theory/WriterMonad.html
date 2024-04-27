@@ -1,0 +1,44 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js"></script>
+<script>
+    const compose = (f, g) => x => f(g(x));
+    const inc = (x) => x + 1;
+    const double = (x) => x * 2;
+
+    class Writer{
+        constructor(value,log) 
+        { 
+            this.value = value;
+            this.log = log;
+        }
+        static of(empty) {
+            return (value) => new Writer (value, empty);
+        }
+        map(fn) {
+            console.log('Value ',this.value);
+            return new Writer(fn(this.value), this.log);
+        }
+        //fn->moandic function
+        flatMap(fn) {
+            const { value, log } = fn(this.value);
+            return new Writer(value, this.log.concat(','+log))
+        }
+    }
+    const unit = Writer.of('');
+    //console.log("unit ",unit instanceof Writer);
+    //console.log("Unit ",unit(3));
+    let counter = unit(3);
+    console.log("Counter ",counter);
+    let result = counter.map(inc);
+    console.log('Result ',result);
+    
+    const add5 = (a) => Writer.of('added 5')(a + 5);
+    const add8 = (a) => Writer.of('added 8, ')(a + 8);
+    const theOne = new Writer(1, 'Initial One, ');
+    result = theOne.flatMap(add5)
+                   .flatMap(add8);
+    console.log('Result ',result);
+    
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.28.0/ramda.js"></script>
+    <script>
+       
+       const inc = (x)=> [x+1,'inc was called'];
+       const double = (x)=>[x*x,'double was called'];
+
+       const pipe = (funA)=>(funB)=>x => funB(funA(x));
+
+       const newFun = pipe(inc)(double);
+       console.log('inc ',inc(10));
+       console.log('newFunc ',newFun(10));
+
+       function pipe2(fun1,fun2)
+       {
+            return function(x)
+            {
+                let [result,log] = fun1(x);
+                let [result2,log2] = fun2(result);
+                return [result2,log+','+log2];
+            }
+       }
+       const newFun2 = pipe2(inc,double);
+       console.log('NewFun2 ',newFun2(10));
+       var bind = (f) => function(tuple) {
+            const [result, log] = tuple,
+                  [result2, log2] = f(result);
+            return [result2, log + log2];
+      };
+      let fun3 = bind(inc);
+      console.log(fun3([10,''])); 
+      let fun4 = pipe(bind(inc))(bind(double));
+      const unit = (x)=>[x,''];
+      let fun5 = pipe(unit)(fun4);
+      console.log('Fun4 ',fun5(10));
+    </script>
+</html>

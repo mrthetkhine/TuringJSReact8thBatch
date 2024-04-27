@@ -1,0 +1,28 @@
+<html>
+
+<script>
+    let obj = {
+        name : 'TK',
+        age : 39,
+        display()
+        {
+            console.log('Name ',this.name, ' Age ',this.age);
+        }
+    }    
+    obj.display();
+    function Human(name,age)
+    {
+        this.name = name;
+        this.age = age;
+        this.display = function()
+        {
+            console.log('Name ',this.name, ' Age ',this.age);
+        }
+    };
+    let aungAung = new Human('Aung Aung ',25);
+    let hlaMaung = new Human('Hla Maung ',20);
+    aungAung.display();
+    hlaMaung.display();
+</script>
+
+</html>
