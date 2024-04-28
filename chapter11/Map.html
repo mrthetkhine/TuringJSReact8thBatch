@@ -1,0 +1,47 @@
+<html>
+   
+    <script>
+        //map = {};
+        let map = new Map();
+        map.set('1','Aung Aung');
+        map.set('2','Hla Hla');
+        map.set('1','Mya Mya');
+        console.log('Get 1 ',map.get('1'));
+        console.log('size ',map.size);
+        console.log('has 1',map.has('1'));
+        console.log('has 1',map.has(1));
+
+        let map2 = new Map([
+            [
+                'user-1',{ name: 'User 1'}
+            ],
+            [
+                'user-2',{ name: 'User 2'}
+            ]
+        ]);
+        console.log('Map2 ',map2);
+
+        let obj = {
+            name: 'TK',
+            address:"Somewhere"
+        };
+        let map3 = new Map(Object.entries(obj));
+        console.log('Map3 ',map3);
+
+        map3.set(undefined,'Hello');
+        console.log('Map ',map3.get(undefined));
+
+        for(const [key,value] of map3)
+        {
+            console.log('Key ',key, ' Value ',value);
+        }
+        console.log('Keys ',map3.keys());
+        console.log('Values ',map3.values());
+        console.log('Entries ',map3.entries());
+
+        map3.forEach((value,key)=>{
+            console.log('Key ',key, ' Value ',value);
+        });
+    </script>
+
+</html>

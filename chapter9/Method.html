@@ -1,0 +1,36 @@
+<html>
+
+<script>
+    class Human
+    {
+        constructor(name,age)
+        {
+            console.log('Human Constructor ');
+            this.name = name;
+            this.age = age;
+        }
+        display()
+        {
+            console.log('Name ',this.name, ' Age',this.age);
+        }
+        work()
+        {
+            console.log('Name ',this.name , ' Work');
+        }
+    }
+    Human.prototype.eat = function()
+    {
+        console.log('Name ',this.name, ' eat');
+    }
+   
+    let obj = new Human('TK',39);
+    obj.display();
+    obj.work();
+    obj.eat();
+    console.log('Obj instanceof Human ',obj instanceof Human);
+    console.log('Obj instanceof Object ',obj instanceof Object);
+
+    
+</script>
+
+</html>

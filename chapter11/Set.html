@@ -1,0 +1,33 @@
+<html>
+   
+    <script>
+        let set = new Set();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(1);
+        set.delete("2");
+        set.add([1,2,2,3,4]);
+        console.log('Size ',set.size);
+        console.log('set ',set);
+        console.log('set has 2 ',set.has(2));
+
+        for(const element of set)
+        {
+            console.log('Element ',element);
+        }
+        let arr = [...set];
+        console.log('Arr ',arr);
+        set.clear();
+        console.log('set ',set);
+
+        let unique = new Set("Missisipi");
+        console.log('Unique ',unique);
+
+        let set2 = new Set(['apple','banan','apple']);
+        console.log('set2 ',set2);
+
+        set2.forEach(item=>console.log('Item ',item));
+    </script>
+
+</html>

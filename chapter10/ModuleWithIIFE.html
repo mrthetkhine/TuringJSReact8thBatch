@@ -1,0 +1,18 @@
+<html>
+
+<script>
+    window.Module = window.Module || (function()
+    {
+        console.log('Module initialized');
+        function api()
+        {
+            console.log('API ');
+        }
+        return {
+            api
+        }
+    })();
+    Module.api();
+</script>
+
+</html>
