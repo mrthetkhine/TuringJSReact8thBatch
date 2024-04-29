@@ -1,0 +1,25 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        console.log("7 plus 8 equals 15".match(/\d+/g));
+        let url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+        let text = "Visit my blog at http://www.example.com/~david"; 
+        let match = text.match(url);
+        console.log('Math ',match);
+
+        let str = "apple;orange;banana";
+        let arr = str.split(";");
+        console.log('Arr ',arr)
+
+        let pattern = /Java/g;
+        text = "JavaScript > Java";
+        match;
+        while((match = pattern.exec(text)) !== null) {
+            console.log(`Matched ${match[0]} at ${match.index}`);
+            console.log(`Next search begins at${pattern.lastIndex}`);
+        }
+    </script>
+
+</html>

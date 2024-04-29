@@ -1,0 +1,44 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let pattern = /^\d{9,11}$/;
+        console.log(' /\d/ 1', pattern.test('1'));
+        console.log(' /\d/ x', pattern.test('x'));
+        console.log(' /^\d{9,11}$/ 123456789', pattern.test('123456789'));
+
+        pattern = /^\d{9,}$/;
+        console.log(' /\d/ 1', pattern.test('1'));
+        console.log(' /\d/ x', pattern.test('x'));
+        console.log(' /^\d{9,}$/ 123456789', pattern.test('123456789'));
+        console.log(' /^\d{9,}$/ 123456789', pattern.test('123456789122'));
+
+        pattern = /^\d{3}$/;
+        console.log(' /\d{3}/ 123', pattern.test('123'));
+        console.log(' /\d{3}/ 12', pattern.test('12'));
+        console.log(' /\d{3}/ 1234', pattern.test('1234'));
+
+        pattern = /^\d?$/;
+        console.log(' /\d?/ 1', pattern.test('1'));
+        console.log(' /\d?/ ', pattern.test(''));
+        console.log(' /\d?/ 123', pattern.test('123'));
+
+        pattern = /\d?/;
+        console.log(' /\d?/ 1', pattern.test('1'));
+        console.log(' /\d?/ ', pattern.test(''));
+        console.log(' /\d?/ 123', pattern.test('123'));
+
+        pattern = /^\d+$/;
+        console.log(' /\d+/ 1', pattern.test('1'));
+        console.log(' /\d+/ ', pattern.test(''));
+        console.log(' /\d+/ 123', pattern.test('123'));
+
+        pattern = /^\d*$/;
+        console.log(' /\d*/ 1', pattern.test('1'));
+        console.log(' /\d*/ ', pattern.test(''));
+        console.log(' /\d*/ 123', pattern.test('123'));
+
+    </script>
+
+</html>

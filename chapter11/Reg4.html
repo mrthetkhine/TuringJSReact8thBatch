@@ -1,0 +1,23 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let pattern = /\d{3}|[a-z]{4}/;
+        console.log(' /\d{3}|[a-z]{4}/ 112', pattern.test('112'));
+        console.log(' /\d{3}|[a-z]{4}/ xz12', pattern.test('xz12'));
+        console.log(' /\d{3}|[a-z]{4}/ abacd', pattern.test('abacd'));
+
+        console.log('Match ', 'adacd'.match(pattern));
+
+        pattern = /java(script)?/giy;
+        console.log('/java(script)?/.exec javascript', pattern.exec('javascript & java'));
+        console.log('Match javascript', 'Javascript & java'.match(pattern));
+        console.log('/java(script)?/.exec javaprogramming', pattern.exec('javaprogramming'));
+
+        pattern = /([a-zA-Z]+)@(([a-zA-Z]+))\.(com|org|gov)/;
+        console.log('//([a-zA-Z]+)@(([a-zA-Z]+))\.[com|org|gov]/ user@domain.com', pattern.exec('user@domain.com'));
+        //console.log('/java(script)?/.exec javaprogramming', pattern.exec('javaprogramming'));
+    </script>
+
+</html>

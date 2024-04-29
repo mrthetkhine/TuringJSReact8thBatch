@@ -1,0 +1,29 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let date = new Date();
+        console.log('Date ',date);
+
+        //date = new Date(0);
+        //console.log('Date ',date);
+
+        let obj = {
+            birthday : new Date().getTime()
+        };
+        let json = JSON.stringify(obj);
+        console.log('JSON ',json);
+
+        let ms = date.getTime();
+        date = new Date(ms);
+        console.log('Date ',date);
+
+        date = new Date(2024,3,29,12,13,14);
+        console.log('Date ',date);
+        console.log('Year ',date.getFullYear());
+        date.setFullYear(date.getFullYear()+1);
+        console.log('Date ',date);
+    </script>
+
+</html>

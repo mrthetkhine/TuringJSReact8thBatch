@@ -1,0 +1,19 @@
+<html>
+   <body>
+   
+   </body>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js">
+
+   </script>
+    <script>
+        var a = moment('2024-4-29'); 
+        console.log('A ',a.toDate());
+        var b = a.add(2, 'month'); 
+        console.log('B ',b.format('MMMM Do YYYY, h:mm:ss a'));
+
+        let obj = {
+            birthday : new Date().getTime()
+        };
+        console.log('JSON.stringify ',JSON.stringify(obj));
+    </script>
+</html>

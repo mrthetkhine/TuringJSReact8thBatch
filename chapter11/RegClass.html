@@ -1,0 +1,43 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let pattern = /[xyz]/;
+        console.log(' /[xyz]/ x', pattern.test('x'));
+        console.log(' /[xyz]/ x', pattern.test('y'));
+        console.log(' /[xyz]/ ze', pattern.test('ze'));
+        console.log(' /[xyz]/ ee', pattern.test('ee'));
+
+        pattern = /[a-z]/;
+        console.log('  /[a-z]/.test x', pattern.test('x'));
+        console.log('  /[a-z]/.test b', pattern.test('b'));
+        console.log('  /[a-z]/.test 12', pattern.test('12'));
+        console.log('  /[a-z]/.test AB', pattern.test('AB'));
+
+        pattern = /[a-zA-Z]/;
+        console.log('  /[a-zA-Z]/.test AB', pattern.test('AB'));
+
+        pattern = /[a-zA-Z0-9]/;
+        console.log('  /[a-zA-Z0-9]/.test AB', pattern.test('AB'));
+        console.log('  /[a-zA-Z0-9]/.test 122', pattern.test('12'));
+
+        pattern = /\w/;
+        console.log('  /\w/.test AB', pattern.test('AB'));
+        console.log('  /\w/.test 122', pattern.test('12'));
+
+        pattern = /[^123]/;
+        console.log('  /[^123]/.test AB', pattern.test('AB'));
+        console.log('  /[^123]/.test 122', pattern.test('12'));
+
+        pattern = /./;
+        console.log('  /./.test AB', pattern.test('AB'));
+        console.log('  /./.test 122', pattern.test('12'));
+
+        pattern = /^\d*$/;
+        console.log('  /^\d$/ AB', pattern.test('AB'));
+        console.log('  /^\d$/ 122', pattern.test('12'));
+        console.log('  /^\d$/ 1', pattern.test('1'));
+    </script>
+
+</html>

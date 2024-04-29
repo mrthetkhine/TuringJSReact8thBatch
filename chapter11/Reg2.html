@@ -1,0 +1,27 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let pattern = /\D/;
+        console.log(' /\D/ x', pattern.test('x'));
+        console.log(' /\D/ x', pattern.test('y'));
+        console.log('  /\D/ ze', pattern.test('ze'));
+        console.log('/\D/ e1e', pattern.test('e1e'));
+
+        pattern = /\s/;
+        console.log(' /\s/ ', pattern.test(' '));
+        console.log(' /\s/ hello ', pattern.test('hello'));
+
+        pattern = /\S/;
+        console.log(' /\S/ ', pattern.test(' '));
+        console.log(' /\S/ hello ', pattern.test('hello'));
+        
+
+        pattern = /Java|Python/;
+        console.log(' /Java|JavaScript// ', pattern.test('Java'));
+        console.log(' //Java|JavaScript/ Python ', pattern.test('Python'));
+        console.log(' //Java|JavaScript/ C ', pattern.test('C'));
+    </script>
+
+</html>

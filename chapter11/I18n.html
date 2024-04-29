@@ -1,0 +1,18 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let euros = Intl.NumberFormat("es", {style: "currency", currency: "EUR"});
+        console.log('Euros ',euros.format(10));
+
+        let date = new Date();
+        console.log('US ',Intl.DateTimeFormat("en-US").format(date));
+        console.log('French ',Intl.DateTimeFormat("fr-FR").format(date));
+
+        const collator = new Intl.Collator().compare;
+        let arr = [ "ခဲတံ","ကား", "A", "Z","ကံ"].sort(collator);
+        console.log('Arr ',arr);
+    </script>
+
+</html>
