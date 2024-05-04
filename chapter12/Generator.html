@@ -1,0 +1,28 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+       function *gen()
+       {
+            yield 1;
+            console.log('Step 1');
+            yield 2;
+            console.log('Step 2');
+            yield 3;
+       }
+       let generator = gen();
+       console.log('Next ',generator.next());
+       console.log('Next ',generator.next());
+       console.log('Next ',generator.next());
+       console.log('Next ',generator.next());
+
+       for(const item of gen())
+       {
+        console.log('Item ',item);
+       }
+
+    </script>
+
+</html>

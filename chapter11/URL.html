@@ -1,0 +1,17 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        
+        let url = new URL("https://example.com:8000/path/name? q=term#fragment");
+        console.table('Domainname ',url.origin);
+        url.searchParams.append('q','term');
+        console.log('url ',url);
+        let str = encodeURI('http://www.google.com/my car');
+        console.log('encode ',str);
+        let url2 = decodeURI(str);
+        console.log('url2 ',url2);
+    </script>
+
+</html>

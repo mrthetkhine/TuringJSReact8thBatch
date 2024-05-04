@@ -10,7 +10,32 @@
         function hello()
         {
             console.log('Hello');
+            console.trace('Traceoutput');
         }
+        let obj = {
+            name :'TK',
+            age : 39
+        }
+        console.table(obj);
+        hello();
+
+        console.time('timer1');
+        console.count('Clicked');
+        console.count('Clicked');
+        console.count('Clicked');
+        console.countReset('Clicked');
+        console.count('Clicked');
+
+        console.group('level1');
+        console.log('Level1 output');
+        console.group('level2');
+        console.log('Level2 output');
+        console.groupEnd();
+        console.groupEnd();
+
+        console.timeLog('timer1');
+        console.timeEnd('timer1');
+        console.log('%d middle %s',1.21,false);
     </script>
 
 </html>

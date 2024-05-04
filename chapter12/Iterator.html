@@ -1,0 +1,29 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+       let arr =[10,20,30];
+       for(const item of arr)
+       {
+        console.log('Item ',item); 
+       }
+       
+       let iterator= arr[Symbol.iterator]();
+       console.log('Iterator ',iterator);
+       
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       /*
+      for(let result= iterator.next(); !result.done; result= iterator.next())
+      {
+        console.log('Result ',result.value);  
+      }
+      */
+
+    </script>
+
+</html>

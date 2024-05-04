@@ -1,0 +1,23 @@
+<html>
+    <body>
+       <button type="button" id="btnClick">Click</button>
+    </body>
+    <script>
+        
+        document.getElementById('btnClick').addEventListener('click',()=>{
+            console.log('Click event');
+        });
+        setTimeout(()=>console.log('Hello'),0);
+        setTimeout(()=>console.log('Hello2'),0);
+        setTimeout(()=>console.log('Hello3'),0);
+        console.log('World');
+        let start = new Date();
+        let end = new Date();
+        while( (end-start)<3000 )
+        {
+            end = new Date();
+        }
+        console.log('after 2 seconds');
+    </script>
+
+</html>

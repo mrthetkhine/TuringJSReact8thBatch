@@ -1,0 +1,58 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+       class Range
+       {
+            constructor(from,to)
+            {
+                this.from = from;
+                this.to = to;
+            }
+            [Symbol.iterator]()
+            {
+                let that = this;
+                let current = that.from;
+                return{
+                    next()
+                    {
+                        //console.log('Current ',current);
+                        let done = !(current< that.to);
+                        return {
+                            value : done?undefined:current ++,
+                            done 
+                        };
+                    }
+                };
+            }
+       }
+
+       function range(from,to)
+       {
+            return new Range(from,to);
+       }
+ 
+       /*
+       console.log('Iterator ',iterator);
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       console.log('Next ',iterator.next());
+       */
+       /*
+       for(let result= iterator.next(); !result.done; result= iterator.next())
+       {
+            console.log('Result ',result.value);  
+       }*/
+       for(const item of range(0,10))
+       {
+        console.log('Item ',item);
+       }
+      
+    </script>
+
+</html>
