@@ -1,0 +1,36 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+        function *demo()
+        {
+            console.log('First');
+            let y1 = yield 1;
+            console.log('Second ',y1);
+            let y2 = yield 2;
+            console.log('Third ',y2);
+            let y3 = yield 3;
+            console.log('Fourth ',y3);
+            //return 4;
+            throw new Error('Something unexpected');
+        }
+        let gen = demo();
+        let n1 = gen.next('a');
+        console.log("generator yielded", n1.value);
+
+        let n2 = gen.next('b');
+        console.log("generator yielded", n2.value);
+
+        let n3 = gen.next('c');
+        console.log("generator yielded", n3.value);
+
+        let n4 = gen.next('d');
+        console.log("generator yielded", n4.value);
+
+        console.log('Next ',gen.next());
+
+    </script>
+
+</html>

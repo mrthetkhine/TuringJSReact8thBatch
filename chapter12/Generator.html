@@ -22,7 +22,17 @@
        {
         console.log('Item ',item);
        }
-
+       function *range(from ,to)
+       {
+        for(let i=from;i<to;i++)
+        {
+            yield i;
+        }
+       }
+       for(const item of range(1,5))
+       {
+        console.log('Item ',item);
+       }
     </script>
 
 </html>

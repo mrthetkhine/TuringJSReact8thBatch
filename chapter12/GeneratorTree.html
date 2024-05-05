@@ -1,0 +1,59 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+        let data = [
+            {
+                id:1,
+                name: 'Emp1',
+            },
+            {
+                type:'department',
+                name: 'HR',
+                employees:[
+                        {
+                        id:2,
+                        name: 'Emp2',
+                        },
+                        {
+                            id:3,
+                            name: 'Emp3',
+                        },
+                        {
+                            type:'department',
+                            name : 'Something',
+                            employees:[
+                                    {
+                                        id:4,
+                                        name: 'Emp4',
+                                    },
+                            ]
+                        }
+                ]
+            }
+        ];
+        function *traverse(items)
+        {
+            for(let i=0;i<items.length;i++)
+            {
+                let item = items[i];
+                if(item.type=='department')
+                {
+                    yield* traverse(item.employees);
+                }
+                else
+                {
+                    yield item;
+                }
+            }
+        }
+        //traverse(data);
+        for(const emp of traverse(data))
+        {
+            console.log('Emp ',emp);
+        }
+    </script>
+
+</html>

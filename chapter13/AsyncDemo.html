@@ -1,0 +1,21 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+        function addAsync(a,b,callback)
+        {
+            console.log('Process start');
+            setTimeout(()=>{
+                let result = a+b;
+                console.log('Done ',result);
+                callback(result);
+            },2000);
+        }
+        console.log('start');
+        addAsync(10,29,(x)=>console.log('Result is ',x));
+        console.log('end ');
+    </script>
+
+</html>
