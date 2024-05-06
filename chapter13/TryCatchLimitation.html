@@ -1,0 +1,31 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+        function div(a,b)
+        {
+            setTimeout(()=>{
+                if(isNaN(a) || isNaN(b))
+                {
+                    throw new Error('A or b is NaN');
+                }
+                else
+                {
+                    return a/b;
+                }
+            },2000);
+        }
+        try
+        {
+            div(10,NaN);
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+        console.log('End');
+    </script>
+
+</html>

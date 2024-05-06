@@ -1,0 +1,40 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => console.log(json))
+
+        function ourFetch(url)
+        {
+            return new Promise((resolve,reject)=>{
+                let request = new XMLHttpRequest();
+                request.open('GET',url);
+                request.send();
+
+                request.onload = function()
+                {
+                    if(request.status == 200)
+                    {
+                        //console.log('Response ',request.responseText);
+                        resolve(JSON.parse(request.responseText));
+                    }
+                }
+                request.onerror = function(error)
+                {
+                    //console.log('API error');
+                    reject(error);
+                }
+            });
+            
+        }
+        ourFetch('https://jsonplaceholder.typicode.com/todos/2')
+            .then(data=>console.log('JSON ',data));
+        ourFetch('https://jsonplaceholder.typicode.com/todos/3')
+            .then(data=>console.log('JSON ',data));
+    </script>
+
+</html>

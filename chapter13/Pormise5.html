@@ -1,0 +1,30 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        function getP1()
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('P1 fired');
+                    resolve(2000);
+                },2000);
+            });
+        }
+        function getP2()
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log('P2 fired');
+                    resolve(3000);
+                },2000);
+            });
+        }
+        getP2().then(data=>console.log('P2 data ',data));
+        getP1().then(data=>console.log('P1 data ',data));
+    </script>
+
+        
+
+</html>

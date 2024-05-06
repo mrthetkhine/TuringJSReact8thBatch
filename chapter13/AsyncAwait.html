@@ -1,0 +1,19 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        async function getData()
+        {
+           let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+           let response2 = await fetch('https://jsonplaceholder.typicode.com/todos/2');
+           let json = await response.json();
+           console.log('JSON ',json);
+        }
+        getData();
+        
+    </script>
+
+        
+
+</html>

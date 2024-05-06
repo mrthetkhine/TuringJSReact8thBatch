@@ -1,0 +1,31 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        /*
+        fetch('url',callback()
+        {
+            another();
+        })
+        */
+        
+        let p1 = fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(resp=>{
+                console.log('Log ',resp);
+                return resp;
+            });
+        let p2 = p1.then(response => response.json())
+            .then(json=>json.title)
+            .then(title =>title.toUpperCase())
+            .then(console.log);
+        console.log('Done');
+        fetch('https://jsonplaceholder.typicode.com1/todos2/1')
+            .then(resp=>{
+                console.log('Log 2 ',resp);
+                return resp;
+            },(error)=>console.log('Error ',error));
+            
+    </script>
+
+</html>

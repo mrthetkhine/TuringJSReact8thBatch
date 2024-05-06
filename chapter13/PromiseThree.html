@@ -1,0 +1,32 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        /*
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response=>response.json())
+            .then(json1=>{
+                fetch('https://jsonplaceholder.typicode.com/todos/2')
+                    .then(resp=>resp.json())
+                    .then(json2=>{
+                        console.log('JSON1 ',json1, ' JSON2 ',json2);
+                    });
+            });
+        */
+       let urls =['https://jsonplaceholder.typicode.com/todos/1','https://jsonplaceholder.typicode.com/todos/2'];
+       let promises = urls.map(url=>fetch(url).then(resp=>resp.json()));
+       Promise.all(promises)
+              .then(data=>{
+                console.log('all promise resolved ',data);
+              });  
+        Promise.allSettled([Promise.resolve(1), Promise.reject(2),Promise.resolve(3)])
+            .then(data=>console.log('All settled ',data));
+        let p2 = urls.map(url=>fetch(url).then(resp=>resp.json()));
+        Promise.race(p2)
+               .then(data=>console.log('Race ',data)) 
+        </script>
+
+        
+
+</html>

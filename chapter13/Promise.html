@@ -1,0 +1,29 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        function div(a,b,callback)
+        {
+            setTimeout(()=>{
+                callback(a/b);
+            },1000);
+        }
+        div(10,2,(result)=>console.log('Result ',result));
+        
+        let promise = Promise.resolve(100);
+        promise.then(data=>data*2)
+               .then(console.log); 
+
+        Promise.reject('Something went wrong')
+                .then(data=>data*2,(error)=>{
+                    console.log('Error');
+                    //return 0;
+                    //throw error;
+                    return Promise.reject('New Error');
+                })
+                .catch(error=>console.log('Catch ',error))
+               .then(console.log,(error)=>console.log('Last error callback ',error)); 
+    </script>
+
+</html>

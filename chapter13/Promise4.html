@@ -1,0 +1,56 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        Promise.resolve(3)
+                .then(x=>Promise.resolve(x+2))
+                .then(console.log)
+                .then(console.log('Finally executed'));
+        /*
+        new Promise((resolve,reject)=>{
+
+        })
+        */
+       class OurPromise
+       {
+            handlers = [];
+            constructor(callback)
+            {
+                //console.log('Callback ',callback);
+                callback(this.resolve.bind(this),this.reject.bind(this));
+            }
+            resolve(data)
+            {
+                console.log('Resolve ',data);
+                console.log('Handlers ',this);
+                return this.handlers.reduce((input,handler)=>{
+                    return handler(input);
+                },data);
+            }
+            reject(data)
+            {
+                console.log('Rejected ',data);
+                //let result = data;
+               
+            }
+            then(handler)
+            {
+                //console.log('Handler ',handler);
+                this.handlers.push(handler);
+                return this;
+            }
+       }
+       let p = new OurPromise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log('Do something');
+                resolve(100);
+            },2000);
+       });
+       p.then(x=>x+1)    
+        .then(data=>console.log('Data ',data));
+        </script>
+
+        
+
+</html>
