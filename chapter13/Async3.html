@@ -1,0 +1,33 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        async function getData()
+        {
+           let urls = ['https://jsonplaceholder.typicode.com/todos/1','https://jsonplaceholder.typicode.com/todos/2'];
+           let promises = urls.map(url=>fetch(url).then(resp=>resp.json()));
+
+           let data = await Promise.all(promises);
+           console.log('Data ',data);
+        }
+        //getData();
+        async function getDataTwo()
+        {
+           let urls = ['https://jsonplaceholder.typicode.com/todos/1',
+                        'https://jsonplaceholder.typicode.com/todos/2'];
+           let promises = urls.map(url=>fetch(url)
+                              .then(resp=>resp.json()));
+
+           for await(const promise of promises)
+           {
+            //let response  = await promise;
+            console.log('Response ',promise);
+           }
+        }
+        getDataTwo();
+    </script>
+
+        
+
+</html>

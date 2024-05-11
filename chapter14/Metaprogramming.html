@@ -1,0 +1,37 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        function check(obj)
+        {
+            return obj.name!==undefined  && obj.age!==undefined;
+        }
+        function checkWithMeta(obj)
+        {
+            let response = true;
+            for(let prop in obj)
+            {
+                console.log('Check ',prop, ' value ',obj[prop]);
+                response = response && obj[prop]!==undefined;
+            }
+            return response;
+        }
+        let obj = {
+            name: 'Hello',
+            age : 39,
+        };
+        console.log('Check ',check(obj));
+
+        let obj3 ={
+            name: '',
+            age : 30,
+            address: 'Somewhere'
+        };
+        console.log('Checkwith meta ',checkWithMeta(obj));
+        console.log('Descripttor ',Object.getOwnPropertyDescriptors(obj3));
+    </script>
+
+        
+
+</html>

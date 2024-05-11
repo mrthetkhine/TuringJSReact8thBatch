@@ -1,0 +1,24 @@
+<html>
+    <body>
+      
+    </body>
+    <script>
+        let obj = {
+            name : "TK"
+        };
+        Object.defineProperty(obj,"age",{
+            value: 39,
+            writable :false,
+            configurable:false,
+            enumerable:false,
+        });
+        obj.age = 100;
+        delete obj.age;
+        console.log('Obj ',obj);
+
+        console.log('Objectkeys ',Object.keys(obj));
+    </script>
+
+        
+
+</html>

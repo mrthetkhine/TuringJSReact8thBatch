@@ -1,0 +1,31 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        console.log('{}.toString() ',{}.toString());
+        console.log('Object.prototype.toString.call([]) ',Object.prototype.toString.call([]));
+        console.log('Object.prototype.toString.call(0) ',Object.prototype.toString.call(0));
+        console.log('Object.prototype.toString.call(()=>10) ',Object.prototype.toString.call(()=>10));
+
+        function classOf(o) {
+            return Object.prototype.toString.call(o).slice(8,-1);
+        }
+        console.log('classOf({}) ',classOf({}));
+        console.log('classOf([]) ',classOf([]));
+        let obj = {
+
+        };
+        class Human
+        {
+            get [Symbol.toStringTag]() 
+            { 
+                return "Human"; 
+            }
+        }
+        console.log('classOf(new Human()) ',classOf(new Human()));
+    </script>
+
+        
+
+</html>

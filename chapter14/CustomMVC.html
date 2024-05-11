@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <div>
+            Name <span id="name"></span>
+            <br/>
+            Age <span id="age"></span>
+        </div>
+    </body>
+    <script>
+        let obj = {
+            name : "TK",
+            age : 39
+        };
+
+        function updateUI(obj)
+        {
+            document.getElementById('name').innerText = obj.name;
+            document.getElementById('age').innerText = obj.age;
+        }
+        updateUI(obj);
+
+        //obj.age= 20;
+        function bindMVC(obj,callback)
+        {
+            let proxy = {};
+            for(let prop in obj)
+            {
+                Object.defineProperty(proxy,prop,{
+                    //value : obj[prop],
+                    get()
+                    {
+                        return obj[prop];
+                    },
+                    set(newValue)
+                    {
+                        obj[prop] = newValue;
+                        console.log('Fired UI update');
+                        callback(obj);
+                    }
+                });
+            }
+            return proxy;
+        }
+        let proxy = bindMVC(obj,updateUI);
+        proxy.age = 100;
+        proxy.name= "Hello";
+    </script>
+
+        
+
+</html>
