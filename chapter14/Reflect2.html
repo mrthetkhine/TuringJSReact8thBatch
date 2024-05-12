@@ -1,0 +1,27 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let obj = {
+            
+        };
+        /*
+        Object.defineProperty(obj,"x",{
+            value : 100,
+            get()
+            {
+                return 200;
+            }
+        });
+        */
+        Reflect.defineProperty(obj,"x",{
+            value : 100,
+            
+        });
+        console.log('Another line');
+    </script>
+
+        
+
+</html>

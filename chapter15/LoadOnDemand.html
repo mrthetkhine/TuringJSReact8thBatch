@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            document.addEventListener("DOMContentLoaded", (event) => {
+                console.log("DOM fully loaded and parsed");
+                console.log('btnLoad ',document.getElementById('btnLoad'));
+            });
+            
+        </script>
+    </head>
+    <body>
+       
+        <button type="button" id="btnLoad">
+            Load
+        </button>
+    </body>    
+    <script>
+        var data = "Hello";
+    </script>
+     <script>
+        window.onerror = function(err)
+        {
+            console.log('Error happened ',err);
+        }
+        console.log('Data ',data);
+        throw new Error();
+        function importScript(url)
+        {
+            return new Promise((resolve,reject)=>
+            {
+                let s = document.createElement('script');
+                s.onload = ()=>resolve();
+                s.onerror = (error)=>reject(error);
+                s.src = url;
+                document.head.append(s);
+            });
+        }
+        document.getElementById('btnLoad')
+                .addEventListener('click',()=>{
+                    console.log('Click');
+                    /*
+                    let element = document.createElement('div');
+                    element.innerText = "Hello";
+                    document.body.append(element);
+                    */
+                   importScript('./lib1.js').then(()=>console.log('script loaded'));
+                });
+        
+     </script>
+</html>

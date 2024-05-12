@@ -1,0 +1,36 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        /*
+        100
+        */
+        let module ={
+            apiOne()
+            {
+                console.log('API one');
+            },
+            apiTwo()
+            {
+                console.log('API Two');
+            }
+        };
+        let proxy =new Proxy(module,{
+            get(target, prop, receiver)
+            {
+                //console.log('target ',target, ' Prop ',prop, ' Reveiver ',receiver);
+                if(typeof target[prop]==='function')
+                {
+                    console.log('method ', prop, ' was called');
+                }
+                return target[prop];
+            }
+        });
+        proxy.apiOne();
+        proxy.apiTwo();
+    </script>
+
+        
+
+</html>

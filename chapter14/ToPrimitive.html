@@ -1,0 +1,26 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        class Data {
+            [Symbol.toPrimitive]()
+            {
+                console.log('toPrimitive called');
+                return 100;
+            } 
+        }
+        let data= new Data();
+        console.log('data ',data+1);
+
+        let str = `
+        Hello \nworld
+        <h1>Hello</h1>
+        `
+        console.log('str ',str);
+        console.log(String.raw `Hello \n World`);
+    </script>
+
+        
+
+</html>

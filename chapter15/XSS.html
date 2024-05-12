@@ -1,0 +1,28 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+       
+        <textarea id="txtData">
+
+        </textarea>
+        <button type="button" id="btnWrite">
+            Write
+        </button>
+        <div id="container">
+
+        </div>
+    </body>    
+   
+     <script>
+       
+        document.getElementById('btnWrite')
+                .addEventListener('click',()=>{
+                   console.log('Write click');
+                   let text = document.getElementById('txtData').value;
+                   document.getElementById('container').innerHTML= text;
+                });
+        
+     </script>
+</html>

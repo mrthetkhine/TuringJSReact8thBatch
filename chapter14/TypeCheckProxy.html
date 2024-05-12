@@ -1,0 +1,31 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+       let obj = {
+            name : "TK",
+            age : 39
+        };
+
+        let proxy =new Proxy(obj,{
+            set(target,prop,value)
+            {
+                if(typeof target[prop] === typeof value)
+                {
+                    target[prop] = value;
+                }
+                else
+                {
+                    console.warn('Invalid type for property ',prop, ' expected ',typeof target[prop], ' but found '+typeof value);
+                }
+            }
+        });
+        proxy.name = 100;
+        proxy.age  = "Hello";
+        console.log('Obj ',obj);
+    </script>
+
+        
+
+</html>

@@ -1,0 +1,39 @@
+<html>
+    <body>
+       
+    </body>
+    <script>
+        let obj = {
+            name : 'TK',
+            display()
+            {
+                console.log('Display ',this.name);
+            }
+        }
+        let obj2= {
+            name: 'Something'
+        };
+        Reflect.apply(obj.display,obj2,[]);
+        class Teacher
+        {
+            constructor()
+            {
+                console.log('teacher constructor');
+            }         
+        }
+        class Doctor
+        {
+            constructor()
+            {
+                console.log('Doctor constructor');
+            }         
+        }
+        let clazz = Teacher;
+        console.log('new ',new clazz());
+        let obj3 = Reflect.construct(clazz,[]);
+        console.log('Obj3 ',obj3);
+    </script>
+
+        
+
+</html>
