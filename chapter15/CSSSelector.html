@@ -1,0 +1,40 @@
+<html>
+    <head>
+       <style>
+        #container
+        {
+            height:200px;
+            background: lightblue;
+        }
+       </style>
+    </head>
+    <body>
+       <form>
+            <imput type="text"></imput>
+            <button type="button">
+                Ok
+            </button>
+            <button type="submit">
+                Submit
+            </button>
+       </form>
+       
+        <div id="container">
+            Container
+        </div>
+        <div id="container2" class="warning">
+            Container2
+        </div>
+        <span  class="warning">
+            Container3
+        </span>
+    </body>    
+   
+     <script>
+        console.log('querySelector ',document.querySelector('#container'));
+        console.log('querySelectorAll ',document.querySelectorAll('div'));
+        console.log('querySelectorAll class',document.querySelectorAll('.warning'));
+        console.log('querySelectorAll div.class',document.querySelectorAll('div.warning'));
+        console.log('querySelectorAll button[type="button"]',document.querySelectorAll('button[type="button"]'));
+     </script>
+</html>

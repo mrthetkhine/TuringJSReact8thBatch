@@ -1,0 +1,49 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+       
+        <button type="button" id="btnPayment">
+            Payement
+        </button>
+        
+        <button type="button" id="btnOk" onclick="alert('btn click')">
+            Ok
+        </button>
+        <button type="button" id="btnShow" >
+            Show
+        </button>
+        <button type="button" id="btnRemove" >
+            Remove
+        </button>
+    </body>    
+   
+     <script>
+        window.onload= function()
+        {
+            console.log('window on load event');
+        }
+        window.onload= function()
+        {
+            console.log('window on load event2');
+        }
+        window.addEventListener('load',()=>{
+            console.log('Onload ');
+        });
+        window.addEventListener('load',()=>{
+            console.log('Onload2 ');
+        });
+        let handler = ()=>{
+                    console.log('Show click');
+                };
+        document.getElementById('btnShow')
+                .addEventListener('click',handler);
+
+        document.getElementById('btnRemove')
+                .addEventListener('click',()=>{
+                    document.getElementById('btnShow')
+                        .removeEventListener('click',handler);
+                });
+     </script>
+</html>

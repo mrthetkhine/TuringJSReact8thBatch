@@ -1,0 +1,58 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+       
+       
+        <button type="button" id="btnOk">
+            Ok
+        </button>
+        <div id="container">
+            Container
+            <div id="childContainer">
+                Child
+            </div>
+        </div>
+        <a href="http://www.google.com" id="btnGo">Go</a>
+    </body>    
+   
+     <script>
+        document.addEventListener('click',(event)=>{
+            console.log('Document click ',event);
+        });
+        document.getElementById('btnGo')
+                .addEventListener('click',(event)=>{
+                    console.log('Child btnGo handler ',event);
+                    event.preventDefault();
+
+                    document.getElementById('btnOk').dispatchEvent(new CustomEvent('click',event));
+                });
+        document.getElementById('childContainer')
+                .addEventListener('click',(event)=>{
+                    console.log('Child container handler ',event);
+                    //event.stopPropagation();
+                });
+        
+        document.getElementById('container')
+                .addEventListener('click',(event)=>{
+                    console.log('container handler 1 ',event);
+                    //event.stopPropagation();
+                    event.stopImmediatePropagation();
+                });
+        document.getElementById('container')
+                .addEventListener('click',(event)=>{
+                    console.log('container handler 2 ',event);
+                });
+        document.addEventListener('contextmenu',(event)=>{
+            console.log('Document context click ',event);
+            event.preventDefault();
+        });
+        document.getElementById('btnOk')
+                .addEventListener('click',(event)=>{
+                   console.log('btnOk click ',event);
+                  
+                });
+        
+     </script>
+</html>
