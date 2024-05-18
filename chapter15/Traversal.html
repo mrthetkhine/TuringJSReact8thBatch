@@ -1,0 +1,65 @@
+<html>
+    <head>
+       <style>
+        ol>li:nth-child(even) 
+        {
+            
+            background: lightblue;
+        }
+       
+        .class1
+        {
+            color:green;
+        }
+        .class2
+        {
+            color:red;
+        }
+       </style>
+    </head>
+    <body>
+       <ol>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+       </ol>
+       <div class="class1" id="container">
+            Container
+            <div>
+                Another
+            </div>
+            <span>
+                Child of div
+            </span>
+       </div>
+       <form >
+            Name <input name="username"/>
+            Password <input type="password" id="password"/>
+       </form>
+       <div class="container">
+        Container 2
+            <span>
+                Child of div 2
+            </span>
+        </div>
+    </body>    
+   
+     <script>
+        let container = document.getElementById('container');
+        console.log('parentNode ',container.parentNode);
+        console.log('childNodes ',container.childNodes);
+        console.log('children ',container.children);
+        console.log('firstElementChild ',container.firstElementChild);
+        console.log('lastElementChild ',container.lastElementChild);
+
+        console.log('nextElementSibling ',container.nextElementSibling);
+        console.log('previousElementSibling ',container.previousElementSibling);
+
+        document.forms[0].action = "http://www.google.com";
+
+        console.log('class ',container.classList);
+        container.classList.add('class2');
+        container.classList.remove('class1');
+     </script>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <head>
+      
+    </head>
+    <body>
+        <div id="container" data-something="10000"
+                            data-another-thing="200">
+            Container
+        </div>
+       <table>
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Two</td>
+                </tr>
+            </tbody>
+       </table>
+    </body>    
+   
+     <script>
+        let container = document.getElementById('container');
+        console.log('data ',container.dataset.something);
+        console.log('data ',container.dataset.anotherThing);
+
+        //container.innerText = "<h2>Change</h2>";
+        //container.innerHTML = "<h2>Change</h2>";
+        //container.outerText = "<h2>Change</h2>";
+        container.outerHTML = "<h2>Change</h2>";
+     </script>
+</html>

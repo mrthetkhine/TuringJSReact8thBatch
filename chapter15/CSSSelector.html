@@ -21,9 +21,15 @@
        
         <div id="container">
             Container
+            <div>
+                child of container
+                <span>span 1of container </span>
+            </div>
+            <span>span 2 of container </span>
         </div>
         <div id="container2" class="warning">
             Container2
+            <span> Span 3 </span>
         </div>
         <span  class="warning">
             Container3
@@ -36,5 +42,10 @@
         console.log('querySelectorAll class',document.querySelectorAll('.warning'));
         console.log('querySelectorAll div.class',document.querySelectorAll('div.warning'));
         console.log('querySelectorAll button[type="button"]',document.querySelectorAll('button[type="button"]'));
+        console.log('querySelectorAll #container span',document.querySelectorAll('#container span'));
+        console.log('querySelectorAll div span',document.querySelectorAll('div span'));
+        console.log('querySelectorAll #container>span',document.querySelectorAll('#container>span'));
+
+        console.log('querySelectorAll div:first-child',document.querySelectorAll('div:first-child'));
      </script>
 </html>

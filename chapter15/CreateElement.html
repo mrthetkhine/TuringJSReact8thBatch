@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <style>
+            .transparent { opacity: 0; }
+        .fadeable { transition: opacity .5s ease-in }
+        </style>
+       
+    </head>
+    <body>
+        <div id="container" data-something="10000"
+                            class="transparent"
+                            data-another-thing="200">
+            Container
+        </div>
+        <button type="button" id="btnShow">Show</button>
+       <table id="tblData">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Two</td>
+                </tr>
+            </tbody>
+       </table>
+    </body>    
+   
+     <script>
+        let container = document.getElementById('container');
+        let spanElement = document.createElement('span');
+        spanElement.innerText = "Hello";
+        container.append(spanElement);
+
+        /*
+        let newImage = document.createElement('img');
+        newImage.src= "https://www.buildrestfoods.com/wp-content/uploads/2020/08/green-apply-416x416.jpg";
+        container.prepend(newImage);
+        */
+        let newDiv = document.createElement('div');
+        newDiv.innerText = "New Div"
+        //container.before(newDiv);
+        container.after(newDiv);
+
+        spanElement.remove();
+
+        container.style.color = "green";
+        container.setAttribute("style","color:blue;background:gray;");
+        document.getElementById('btnShow').addEventListener('click',()=>{
+            container.classList.remove('transparent');
+            container.classList.add('fadeable');
+        });
+        console.log('bounding rectangle ',document.getElementById('tblData').getBoundingClientRect());
+
+        document.addEventListener('click',(event)=>{
+            let x=event.clientX;
+            let y = event.clientY;
+            console.log('Element ',document.elementFromPoint(x,y));
+        }); 
+     </script>
+</html>

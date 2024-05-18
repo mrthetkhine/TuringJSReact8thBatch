@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style>
+         
+        </style>
+       
+    </head>
+    <body>
+        Top
+       
+       
+        <button type="button" id="btnAdd">Add</button>
+        <template id="item">
+            <tr>
+              <td class="record">
+                First
+              </td>
+              <td>
+                Second
+              </td>
+            </tr>
+          </template>
+          
+       <table id="tblData">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody id="tableContainer">
+               
+            </tbody>
+       </table>
+    </body>    
+   
+     <script>   
+
+        function addRow(n)
+        {
+            for(let i=0;i<=n;i++)
+            {
+                const template = document.querySelector("#item");
+                const tbody = document.getElementById('tableContainer');
+                // Clone the new row and insert it into the table
+                const clone = template.content.cloneNode(true);
+                let td = clone.querySelectorAll("td");
+                td[0].textContent = i+"";
+                td[1].textContent = "Stuff "+i;
+
+                /*
+                let tr = clone.querySelectorAll("tr");
+                //console.log('tr ',clone);
+                tr[0].addEventListener('click',(event)=>{
+                    console.log('Click row ',clone);
+                });
+                */
+                
+                tbody.appendChild(clone);
+                
+                
+            }
+        }
+       document.getElementById('btnAdd').addEventListener('click',(event)=>{
+        console.log('Add click');
+        const template = document.querySelector("#item");
+        const tbody = document.getElementById('tableContainer');
+        // Clone the new row and insert it into the table
+        const clone = template.content.cloneNode(true);
+        let td = clone.querySelectorAll("td");
+        td[0].textContent = "1235646565";
+        td[1].textContent = "Stuff";
+
+        tbody.appendChild(clone);
+
+       });
+       addRow(10000);
+       document.getElementById('tableContainer').addEventListener('click',(event)=>{
+        console.log('target ',event.target);
+       });  
+     </script>
+</html>

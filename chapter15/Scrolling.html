@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <style>
+            .transparent { opacity: 0; }
+            .fadeable { transition: opacity .5s ease-in }
+            #container
+            {
+                height:2500px;
+            }
+        </style>
+       
+    </head>
+    <body>
+        Top
+        <div id="container" data-something="10000"
+                            class="transparent"
+                            data-another-thing="200">
+            Container
+        </div>
+        <button type="button" id="btnScroll">scroll</button>
+       <table id="tblData">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Two</td>
+                </tr>
+            </tbody>
+       </table>
+    </body>    
+   
+     <script>   
+        document.getElementById('btnScroll').addEventListener('click',(event)=>{
+            //window.scrollTo(0,0);
+            setInterval(()=>{
+                window.scrollBy(0,-150);
+            },100);
+            //25?
+        });
+        console.log('container ',document.getElementById('container').getBoundingClientRect());
+     </script>
+</html>

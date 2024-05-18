@@ -1,0 +1,53 @@
+<html>
+    <head>
+       <style>
+        ol>li:nth-child(even) 
+        {
+            
+            background: lightblue;
+        }
+        #container
+        {
+            color:red;
+        }
+       </style>
+    </head>
+    <body>
+       <ol>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+       </ol>
+       <div style="color:green;" id="container" class="container">
+            Container
+            <div>
+                Another
+            </div>
+            <span>
+                Child of div
+            </span>
+       </div>
+       <form >
+            Name <input name="username"/>
+            Password <input type="password" id="password"/>
+       </form>
+       <div class="container">
+        Container 2
+        <span>
+            Child of div 2
+        </span>
+   </div>
+    </body>    
+   
+     <script>
+        console.log('querySelector ol>li:nth-child(even) ',document.querySelectorAll('ol>li:nth-child(even)'));
+        console.log('querySelector div+span',document.querySelectorAll('div+span'));
+        console.log('querySelector div~span',document.querySelectorAll('div~span'));
+        console.log('querySelector div,span',document.querySelectorAll('div,span'));
+        console.log('elementByName',document.getElementsByName('username'));
+        console.log('tagName',document.getElementsByTagName('div'));
+        console.log('byClassName',document.getElementsByClassName('container'));
+        console.log('form.password ',document.forms[0].password);
+     </script>
+</html>
