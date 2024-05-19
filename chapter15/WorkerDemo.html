@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script>
+        let worker = new Worker("worker.js");
+        console.log('Post message');
+        setInterval(()=>{
+            console.log('Hello');
+        },1000);
+        
+        worker.postMessage({
+            data : 5
+        });
+        worker.addEventListener('message',event=>{
+            console.log("Message received from worker ",event.data);
+        });
+        document.addEventListener('click',(event)=>{
+            console.log('Click');
+        });
+  </script>
+</head>
+</html>

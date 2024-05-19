@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            #container
+            {
+                height:2000px;
+            }
+        </style>
+       
+    </head>
+    <body>
+       
+    </body>    
+   
+     <script>   
+        let name = window.sessionStorage.userName;
+        if(!name)
+        {
+            let username = window.prompt("What is your username");
+            sessionStorage.userName = JSON.stringify({
+                username
+            });
+        }
+        else
+        {
+            let obj = JSON.parse(name);
+            console.log(obj);
+
+        }
+     </script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <style>
+            #container
+            {
+                height:2000px;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <button type="button" id="btnGo">Go</button>
+        <button type="button" id="btnJump">Jump</button>
+        <button type="button" id="btnBack">Back</button>
+        <div id="container">
+            Container
+        </div>
+        <div id="bottom">
+            Bottom
+        </div>
+       
+    </body>    
+   
+     <script>   
+        console.log('Location ',window.location);
+        let btnGo = document.getElementById('btnGo');
+        btnGo.addEventListener('click',(event)=>{
+            window.location ="http://www.google.com";
+        });  
+        document.getElementById('btnJump').addEventListener('click',(event)=>{
+            window.location.hash ="bottom";
+        });
+        document.getElementById('btnBack').addEventListener('click',(event)=>{
+            history.go(-1);
+        });
+        window.addEventListener('hashchange',(event)=>{
+            console.log('Hashchange ',event);
+        });
+     </script>
+</html>
