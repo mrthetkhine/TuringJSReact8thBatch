@@ -4,7 +4,7 @@ react_8th_batch_test;
 
 show collections;
 
-db.movies.insertOne({
+db.test.insertOne({
     title: "The Favourite",
     genres: [ "Drama", "History" ],
     runtime: 121,
@@ -15,3 +15,171 @@ db.movies.insertOne({
     type: "movie"
   }
 )
+
+db.test.insertOne({
+    title: "The Favourite",
+    genres: [ "Drama", "History" ],
+    runtime: 121,
+    rated: "R",
+    year: 2018,
+    directors: [ "Yorgos Lanthimos" ],
+    actors: [{
+      firstName: "Leonardo",
+      lastName:"Decaprio"
+    } ],
+    type: "movie"
+  }
+)
+
+db.movies.insertMany([{
+    title: "The Favourite 2",
+    genres: [ "Drama", "History" ],
+    runtime: 121,
+    rated: "R",
+    year: 2018,
+    directors: [ "Yorgos Lanthimos" ],
+    cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
+    type: "movie"
+  },
+  {
+    title: "The Favourite 3",
+    genres: [ "Drama", "History" ],
+    runtime: 121,
+    rated: "R",
+    year: 2020,
+    directors: [ "Yorgos Lanthimos" ],
+    cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
+    type: "movie"
+  }
+])
+
+db.movies.find({});
+
+db.movies.find({year:2020});
+
+db.inventory.insertMany([
+  {
+    item: 'journal',
+    qty: 25,
+    size: { h: 14, w: 21, uom: 'cm' },
+    status: 'A'
+  },
+  {
+    item: 'notebook',
+    qty: 50,
+    size: { h: 8.5, w: 11, uom: 'in' },
+    status: 'A'
+  },
+  {
+    item: 'paper',
+    qty: 100,
+    size: { h: 8.5, w: 11, uom: 'in' },
+    status: 'D'
+  },
+  {
+    item: 'planner',
+    qty: 75,
+    size: { h: 22.85, w: 30, uom: 'cm' },
+    status: 'D'
+  },
+  {
+    item: 'postcard',
+    qty: 45,
+    size: { h: 10, w: 15.25, uom: 'cm' },
+    status: 'A'
+  }
+]);
+
+db.inventory.find({
+  qty: { $gt:50}
+})
+
+//AND
+db.inventory.find({
+  qty: { $gte:50},
+  item:"paper"
+})
+
+//OR
+db.inventory.find({$or:[
+  {
+    qty: { $gte:50}
+  },
+  {
+  
+  item:"journal"
+  }
+]})
+
+//not
+db.inventory.find({
+  item:{
+    $not:/journal/
+  }
+});
+
+db.inventory.find({
+  item:{
+    $ne:'journal'
+  }
+});
+
+db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+
+db.inventory.find( { "size.uom": "in" } )
+
+db.inventory.find( { "size.h": { $lt: 15 } } )
+
+//exact match
+db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
+
+db.inventory.find( { size: { uom: "cm" ,h: 14, w: 21 } } )
+
+//exact match
+db.inventory.find( { tags: ["red", "blank"] } )
+
+//all
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+
+//find element
+db.inventory.find( { tags: "red" } )
+
+db.inventory.find( { dim_cm: { $gt: 15, $lt: 20 } } )
+
+db.inventory.find( { dim_cm: { $elemMatch: { $gt: 22, $lt: 30 } } } )
+
+db.inventory.find( { "dim_cm.1": { $gt: 25 } } )
+
+db.inventory.find( { dim_cm: { $elemMatch: { $lt: 30, $gt: 22 } } } )
+
+db.inventory.find( { "tags": { $size: 3 } } )
+
+
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )
+
+db.inventory.find( { 'instock.qty': { $lte: 20 } } )
+
+db.inventory.find( { 'instock.0.qty': { $lte: 20 } } )
+
+//not exact match
+db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )
+
+db.inventory.find( { "instock.qty": { $gt: 10,  $lte: 20 } } )
+
+db.inventory.find( { "instock.qty": 5, "instock.warehouse": "A" } )
+
+db.inventory.find();
+
+db.inventory.find({},{status:1,size:1});
+
+db.inventory.find({},{status:0});
+
+//update
+db.inventory.updateOne(
+  {_id:ObjectId('665dc3b30fefcd0c1d761c04')},
+  [
+     { $set: { status: "Modified", comments: [ "One", "Two" ] } },
+     { $unset:["size"]}
+  ])
+
+db.inventory.deleteOne({_id:ObjectId('665dc3b30fefcd0c1d761c02')})
