@@ -1,4 +1,4 @@
-
+let Todos = require('../model/ToDo');
 let todos = [
     {
         id:1,
@@ -9,21 +9,38 @@ let todos = [
         title:'Task2'
     },
 ]
-function getAllTodo()
+async function getAllTodos()
 {
-    return todos;
+    return Todos.find();
 }
-function getTodoById(id)
+async function getTodoById(id)
 {
-    return todos.filter(todo=>todo.id==id);
+    return Todos.findById(id);
 }
-function saveTodo(todo)
+async function saveTodo(todo)
 {
-    todos.push(todo);
-    return todo;
+    let newToDo = new Todos(todo);
+    return newToDo.save();
+}
+async function updateTodo(todoId,todo)
+{
+    let updateTodo = await Todos.findByIdAndUpdate(todoId,todo,{new:true});
+    return updateTodo;
+}
+async function deleteTodo(todoId)
+{
+    let todo = await Todos.findById(todoId)
+    if(!todo)
+    {
+        throw new Error({message: 'Todo Id not found'});
+    }
+    let deletedTodo = await Todos.findByIdAndDelete(todoId);
+    return deletedTodo;
 }
 module.exports ={
-    getAllTodo,
+    getAllTodos,
     getTodoById,
     saveTodo,
+    updateTodo,
+    deleteTodo,
 }
