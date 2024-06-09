@@ -24,6 +24,8 @@ const getReviewById = async (req,res,next)=>{
 }
 const getReviewByMovieId = async (req,res,next)=>{
     try {
+        //console.log("Req time", req.requestTime);
+        console.log("Logined user ", req.user);
         let movieId = req.params['movieId'];
         const review = await reviewService.getReviewByMovieId(movieId);
         if(!review) throw Error('No review');
