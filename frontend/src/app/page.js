@@ -7,6 +7,11 @@ import JsxDemo from "./components/JsxDemo";
 import Greeting from "./components/Greeting";
 import Profile from "./components/Profile";
 import Container from "./components/Container";
+import Conditional from "./components/Conditional";
+import ListDemo from "./components/ListDemo";
+import ImpureDemo from "./components/ImpureDemo";
+import Counter from "./components/Counter";
+import RefEquality from "./components/RefEquality";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -34,11 +39,17 @@ export default function Home() {
          {/* <Greeting name={"TK"} age={39}/>
           <Greeting name={"Someone"}/>*/}
         {/*  <Profile profile={obj}/>*/}
-          <Container message={"Message from page"}>
+          {/*<Container message={"Message from page"}>
               <h1>Hello</h1>
               <div>How</div>
               <HelloWorld/>
-          </Container>
+          </Container>*/}
+         {/* <Conditional/>
+          <Conditional isAdmin={true}/>*/}
+          {/*<ListDemo/>*/}
+         {/* <ImpureDemo/>*/}
+         {/* <Counter/>*/}
+          <RefEquality/>
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 export default function Greeting({name})
 {
-    //console.log("Props ",props);
+    console.log("Render greeting ");
     return(<div>
         Hello from Greeting {name}
     </div>);
