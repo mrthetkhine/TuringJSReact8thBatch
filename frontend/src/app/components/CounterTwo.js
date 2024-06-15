@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Greeting from "./Greeting";
 
-export default function Counter()
+export default function CounterTwo()
 {
     /*let counter = 0;
    ;*/
@@ -9,7 +9,14 @@ export default function Counter()
     const [another,setAnother] = useState(new Date());
     const incCounter=()=>{
         console.log('Counter ',counter);
-        setCounter(counter+1);
+        setCounter(counter=>counter+1);
+        setCounter(counter=>counter+1);
+        setCounter(counter=>counter+1);
+        setAnother(new Date());
+       /* setTimeout(()=>{
+            alert('Counter '+counter);
+        },3000);
+*/
 
     }
     const changeDate =()=>{
@@ -29,11 +36,7 @@ export default function Counter()
         &nbsp;
         <button type={"button"} onClick={incCounter}>+</button>
         &nbsp;
-        <button type={"button"} onClick={changeDate}>Update date</button>
-        &nbsp;
-        <div></div>
-        <button type={"button"} onClick={changeLocalDate}>Update date</button>
-        &nbsp;
-       {/* <Greeting name={localMessage}/>*/}
+
+        {/* <Greeting name={localMessage}/>*/}
     </div>)
 }

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+//import styles from "./page.module.css";
 import HelloWorld,{AnotherChild} from "./components/HelloWorld";
 import ClassComponent from "./components/ClassComponent";
 import JsxDemo from "./components/JsxDemo";
@@ -12,6 +12,10 @@ import ListDemo from "./components/ListDemo";
 import ImpureDemo from "./components/ImpureDemo";
 import Counter from "./components/Counter";
 import RefEquality from "./components/RefEquality";
+import CounterTwo from "./components/CounterTwo";
+import UpdateListDemo from "./components/UpdateListDemo";
+import UserForm from "./components/UserForm";
+import TodoWithReducer from "./components/TodoWithReducer";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -20,16 +24,9 @@ export default function Home() {
         imageUrl:'https://randomuser.me/api/portraits/men/59.jpg'
     }
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <h1>Header</h1>
-      </div>
+    <main >
 
-      <div className={styles.center}>
-
-      </div>
-
-      <div className={styles.grid}>
+      <div >
        {/*   <AnotherChild/>
         <HelloWorld/>
         <HelloWorld/>
@@ -49,7 +46,13 @@ export default function Home() {
           {/*<ListDemo/>*/}
          {/* <ImpureDemo/>*/}
          {/* <Counter/>*/}
-          <RefEquality/>
+       {/*   <RefEquality/>*/}
+      {/*    <Counter/>
+          <Counter/>*/}
+      {/*<CounterTwo/>*/}
+       {/*   <UpdateListDemo/>*/}
+         {/* <UserForm/>*/}
+          <TodoWithReducer/>
       </div>
     </main>
   );
