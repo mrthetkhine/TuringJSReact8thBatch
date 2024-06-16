@@ -1,6 +1,6 @@
 import {useReducer} from "react";
 
-function todoReducer(todos,action)
+export function todoReducer(todos,action)
 {
     console.log('todos ',todos, ' Action ',action);
     switch (action.type)
@@ -9,6 +9,8 @@ function todoReducer(todos,action)
             return [...todos,action.payload];
         case 'DELETE_TODO':
             return todos.filter(todo=>todo.id!= action.payload.id);
+        case 'UPDATE_TODO':
+            return todos.map(todo=>todo.id== action.payload.id?action.payload:todo);
         default:
             return todos;
     }
@@ -35,17 +37,24 @@ function nexTodo(title)
         title: 'Task '+todoId
     }
 }
-function addTodoAction(todo)
+export function addTodoAction(todo)
 {
     return {
         type:'ADD_TODO',
         payload:todo
     }
 }
-function deleteTodoAction(todo)
+export function deleteTodoAction(todo)
 {
     return {
         type:'DELETE_TODO',
+        payload:todo
+    }
+}
+export function updateTodoAction(todo)
+{
+    return {
+        type:'UPDATE_TODO',
         payload:todo
     }
 }
@@ -64,6 +73,10 @@ export default function TodoWithReducer()
     const btnDeleteHandler= (todoToDelete)=>{
         dispatch(deleteTodoAction(todoToDelete));
     }
+    const btnUpdateHandler =(todo)=>{
+        todo.title += ' Update';
+        dispatch(updateTodoAction(todo));
+    }
     return (<div>
         Todo with reducer.
         <div>
@@ -74,7 +87,9 @@ export default function TodoWithReducer()
             todos.map(todo=><div key={todo.id}>
                 {todo.title}
                 &nbsp;
-                    <button type={"button"} onClick={()=>btnDeleteHandler(todo)}>Delete</button>
+                <button type={"button"} onClick={()=>btnUpdateHandler(todo)}>update</button>
+                &nbsp;
+                <button type={"button"} onClick={()=>btnDeleteHandler(todo)}>Delete</button>
 
             </div>)
         }

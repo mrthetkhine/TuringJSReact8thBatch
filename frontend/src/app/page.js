@@ -16,6 +16,11 @@ import CounterTwo from "./components/CounterTwo";
 import UpdateListDemo from "./components/UpdateListDemo";
 import UserForm from "./components/UserForm";
 import TodoWithReducer from "./components/TodoWithReducer";
+import ContextProblem from "./components/ContextProblem";
+import ContextDemo from "./components/context/ContextDemo";
+import TodoWithReducerContext from "./components/context/TodoWithReducerContext";
+import RefDemo from "./components/RefDemo";
+import FocusInput from "./components/FocusInput";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -52,7 +57,14 @@ export default function Home() {
       {/*<CounterTwo/>*/}
        {/*   <UpdateListDemo/>*/}
          {/* <UserForm/>*/}
-          <TodoWithReducer/>
+         {/* <TodoWithReducer/>*/}
+       {/*   <ContextProblem/>*/}
+         {/* <ContextDemo/>*/}
+         {/* <TodoWithReducer/>*/}
+        {/*  <TodoWithReducerContext/>*/}
+        {/*  <RefDemo/>
+          <RefDemo/>*/}
+          <FocusInput/>
       </div>
     </main>
   );
