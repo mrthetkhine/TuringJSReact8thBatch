@@ -11,6 +11,9 @@ export default function DatePicker()
     useEffect(()=>{
         console.log("Initialized ",datepicker.current);
         $(datepicker.current).datepicker();
+        return ()=>{
+            $(datepicker.current).datepicker('destroy');
+        }
     },[]);
     console.log("Render");
     return(<div>

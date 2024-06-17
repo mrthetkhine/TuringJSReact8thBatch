@@ -21,6 +21,12 @@ import ContextDemo from "./components/context/ContextDemo";
 import TodoWithReducerContext from "./components/context/TodoWithReducerContext";
 import RefDemo from "./components/RefDemo";
 import FocusInput from "./components/FocusInput";
+import EffectDemo from "./components/effect/EffectDemo";
+import FetchTodo from "./components/effect/FetchTodo";
+import CleanUpDemo from "./components/effect/CleanupDemo";
+import DestroyDemo from "./components/effect/DestroyDemo";
+import NativeEvent from "./components/effect/NativeEvent";
+import ShowUser from "./components/hook/ShowUser";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -64,7 +70,15 @@ export default function Home() {
         {/*  <TodoWithReducerContext/>*/}
         {/*  <RefDemo/>
           <RefDemo/>*/}
-          <FocusInput/>
+         {/* <FocusInput/>*/}
+        {/*  <EffectDemo/>*/}
+
+        {/*  <CleanUpDemo/>*/}
+         {/* <DestroyDemo/>*/}
+        {/*  <NativeEvent/>*/}
+          <ShowUser/>
+          <FetchTodo/>
+        {/*  <TodoWithReducer/>*/}
       </div>
     </main>
   );

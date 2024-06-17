@@ -1,4 +1,5 @@
 import {useReducer} from "react";
+import useCustomReducer from "./hook/useCustomReducer";
 
 export function todoReducer(todos,action)
 {
@@ -60,7 +61,8 @@ export function updateTodoAction(todo)
 }
 export default function TodoWithReducer()
 {
-    const [todos,dispatch ]= useReducer(todoReducer,initTodos);
+    //const [todos,dispatch ]= useReducer(todoReducer,initTodos);
+    const [todos,dispatch ]= useCustomReducer(todoReducer,initTodos);
     const addToDoHandler= ()=>{
         const newTodo = nexTodo();
         console.log('NewTodo ',newTodo);
