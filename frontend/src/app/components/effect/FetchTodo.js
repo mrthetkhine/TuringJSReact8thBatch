@@ -12,6 +12,10 @@ export default function FetchTodo()
             })
     },[]);
 */
+   /* useEffect(()=>{
+        //invalid
+       //const [state,setState] = useState('');
+    },[]);*/
 
     const [todos,error,loading]=  useFetch('https://jsonplaceholder.typicode.com/todos');
     return(<div>

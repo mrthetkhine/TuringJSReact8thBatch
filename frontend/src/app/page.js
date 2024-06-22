@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 //import styles from "./page.module.css";
+import 'bootstrap/dist/css/bootstrap.css';
 import HelloWorld,{AnotherChild} from "./components/HelloWorld";
 import ClassComponent from "./components/ClassComponent";
 import JsxDemo from "./components/JsxDemo";
@@ -27,6 +28,11 @@ import CleanUpDemo from "./components/effect/CleanupDemo";
 import DestroyDemo from "./components/effect/DestroyDemo";
 import NativeEvent from "./components/effect/NativeEvent";
 import ShowUser from "./components/hook/ShowUser";
+import FormikDemo from "./components/formik/FormikDemo";
+import BasicFormikExample from "./components/formik/BasicFormikExample";
+import FormikValidation from "./components/formik/FormikValidation";
+import CustomFormikDemo from "./components/customformik/CustomFormikDemo";
+import CustomFormikWithJSX from "./components/customformik/CustomFormikWithJSX";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -76,9 +82,14 @@ export default function Home() {
         {/*  <CleanUpDemo/>*/}
          {/* <DestroyDemo/>*/}
         {/*  <NativeEvent/>*/}
-          <ShowUser/>
-          <FetchTodo/>
+      {/*    <ShowUser/>
+          <FetchTodo/>*/}
         {/*  <TodoWithReducer/>*/}
+        {/*  <FormikDemo/>*/}
+         {/* <BasicFormikExample/>*/}
+         {/* <FormikValidation/>*/}
+        {/*  <CustomFormikDemo/>*/}
+          <CustomFormikWithJSX/>
       </div>
     </main>
   );
