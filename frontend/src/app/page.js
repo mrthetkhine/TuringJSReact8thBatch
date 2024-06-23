@@ -33,6 +33,14 @@ import BasicFormikExample from "./components/formik/BasicFormikExample";
 import FormikValidation from "./components/formik/FormikValidation";
 import CustomFormikDemo from "./components/customformik/CustomFormikDemo";
 import CustomFormikWithJSX from "./components/customformik/CustomFormikWithJSX";
+import PortalDemo from "./components/PortalDemo";
+import FragmentDemo from "./components/FragmentDemo";
+import SuspendDemo from "./components/SuspendDemo";
+import ForwardRefDemo from "./components/ForwardRefDemo";
+import MemoProblem from "./components/MemoProblem";
+import MemoDemo from "./components/MemoDemo";
+import ImperativeHandleDemo from "./components/ImperativeHandleDemo";
+import ConflictDemo from "./components/ConflictDemo";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -89,7 +97,16 @@ export default function Home() {
          {/* <BasicFormikExample/>*/}
          {/* <FormikValidation/>*/}
         {/*  <CustomFormikDemo/>*/}
-          <CustomFormikWithJSX/>
+        {/*  <CustomFormikWithJSX/>*/}
+        {/*  <PortalDemo/>*/}
+        {/*  <FragmentDemo/>*/}
+       {/*   <SuspendDemo/>*/}
+
+         {/* <MemoProblem/>*/}
+         {/* <MemoDemo/>*/}
+          {/* <ForwardRefDemo/>*/}
+         {/* <ImperativeHandleDemo/>*/}
+          <ConflictDemo/>
       </div>
     </main>
   );
