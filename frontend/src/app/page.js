@@ -41,6 +41,13 @@ import MemoProblem from "./components/MemoProblem";
 import MemoDemo from "./components/MemoDemo";
 import ImperativeHandleDemo from "./components/ImperativeHandleDemo";
 import ConflictDemo from "./components/ConflictDemo";
+import SuspenseWithFetch from "./components/SuspenseWithFetch";
+import RenderDemo from "./components/rendering/RenderDemo";
+import SamePositionRender from "./components/rendering/SamePositionRender";
+import DifferentPosition from "./components/rendering/DifferentPosition";
+import DifferentRoot from "./components/rendering/DifferentRoot";
+import SameRoot from "./components/rendering/SameRoot";
+import ChildList from "./components/rendering/ChildList";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -100,13 +107,21 @@ export default function Home() {
         {/*  <CustomFormikWithJSX/>*/}
         {/*  <PortalDemo/>*/}
         {/*  <FragmentDemo/>*/}
-       {/*   <SuspendDemo/>*/}
+
 
          {/* <MemoProblem/>*/}
          {/* <MemoDemo/>*/}
           {/* <ForwardRefDemo/>*/}
          {/* <ImperativeHandleDemo/>*/}
-          <ConflictDemo/>
+         {/* <ConflictDemo/>*/}
+          {/*<SuspendDemo/>*/}
+         {/* <SuspenseWithFetch/>*/}
+         {/* <RenderDemo/>*/}
+         {/* <SamePositionRender/>*/}
+         {/* <DifferentPosition/>*/}
+         {/* <DifferentRoot/>*/}
+          {/*<SameRoot/>*/}
+          <ChildList/>
       </div>
     </main>
   );

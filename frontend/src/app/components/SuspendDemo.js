@@ -1,15 +1,27 @@
 import { Suspense } from 'react';
-import ShowUser from "./hook/ShowUser";
-function Loading()
+
+export function Loading()
 {
     return (<h1>Loading</h1>);
 }
-
-export default function SuspendDemo()
+async function getData()
+{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("Hello");
+        },2000);
+    });
+}
+export function SuspendChild()
+{
+    const data = getData();
+    return (<h3>Data {data} </h3>);
+}
+export default  function SuspendDemo()
 {
     return (<div>
         <Suspense fallback={<Loading />}>
-            <ShowUser/>
+            <SuspendChild/>
         </Suspense>
     </div>);
 }
