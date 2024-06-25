@@ -1,0 +1,27 @@
+.tab-container
+{
+    border-radius: 5px;
+    border:1px solid lightgray;
+    min-height: 200px;
+    padding:20px;
+    margin:10px;
+}
+.tab-header
+{
+    display:inline-block;
+    width: 150px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+    margin-right: 10px;
+    cursor:pointer;
+}
+.tab-header.active-tab
+{
+    border-bottom: 4px solid green;
+}
+.tab-body
+{
+    padding:10px;
+}

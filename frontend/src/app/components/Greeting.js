@@ -1,4 +1,4 @@
-export default function Greeting({name})
+export default function Greeting({name="Someone"})
 {
     console.log("Render greeting ");
     return(<div>

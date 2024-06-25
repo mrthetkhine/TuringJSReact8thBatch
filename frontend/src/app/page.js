@@ -48,6 +48,9 @@ import DifferentPosition from "./components/rendering/DifferentPosition";
 import DifferentRoot from "./components/rendering/DifferentRoot";
 import SameRoot from "./components/rendering/SameRoot";
 import ChildList from "./components/rendering/ChildList";
+import TabDemo from "./components/tab/TabDemo";
+import ComponentViaVariable from "./components/pattern/ComponentViaVariable";
+import HocDemo from "./components/pattern/hoc/HocDemo";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -121,7 +124,11 @@ export default function Home() {
          {/* <DifferentPosition/>*/}
          {/* <DifferentRoot/>*/}
           {/*<SameRoot/>*/}
-          <ChildList/>
+         {/* <ChildList/>*/}
+         {/* <TabDemo/>*/}
+         {/* <ComponentViaVariable admin={false}/>*/}
+         {/* <Greeting/>*/}
+          <HocDemo/>
       </div>
     </main>
   );
