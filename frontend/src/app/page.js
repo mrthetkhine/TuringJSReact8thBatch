@@ -51,6 +51,7 @@ import ChildList from "./components/rendering/ChildList";
 import TabDemo from "./components/tab/TabDemo";
 import ComponentViaVariable from "./components/pattern/ComponentViaVariable";
 import HocDemo from "./components/pattern/hoc/HocDemo";
+import RenderPropertyDemo from "./components/pattern/render-property/RenderPropertyDemo";
 
 export default function Home() {
     console.log('HelloWorld ',HelloWorld());
@@ -128,7 +129,8 @@ export default function Home() {
          {/* <TabDemo/>*/}
          {/* <ComponentViaVariable admin={false}/>*/}
          {/* <Greeting/>*/}
-          <HocDemo/>
+         {/* <HocDemo/>*/}
+          <RenderPropertyDemo/>
       </div>
     </main>
   );
