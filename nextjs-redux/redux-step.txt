@@ -1,0 +1,8 @@
+create todo slice
+create shape
+create initialState
+create slice
+    reducer
+    selector
+export action, selector
+setup in store.
