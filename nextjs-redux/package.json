@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 8080",
     "build": "next build",
     "start": "next start"
   },
@@ -10,7 +10,10 @@
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0"
+    "react-redux": "^9.1.0",
+    "bootstrap": "^5.3.0",
+    "formik": "^2.4.6",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "20.2.5",
