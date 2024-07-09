@@ -9,8 +9,8 @@ export default function IndexPage() {
   return (<div>
    {/* <TodoCount/>
     <TodosUI/>*/}
-    <TodoApiUI/>
-   {/* <Counter/>*/}
+
+    <Counter/>
   </div>);
 }
 

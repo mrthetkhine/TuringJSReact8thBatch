@@ -1,11 +1,31 @@
 "use client";
 
-import {useGetAllTodosQuery} from "@/lib/features/todo/todosApiSlice";
+import {useGetAllTodosQuery, useGetTodoByIdQuery} from "@/lib/features/todo/todosApiSlice";
 import TodosUI from "@/app/components/todos/TodosUI";
+import {Todo} from "@/lib/features/todo/todoSlice";
+import {useRouter} from "next/navigation";
 
+
+function TodoItem({todo}:{todo:Todo})
+{
+    const router = useRouter();
+    //const { data, isError, isLoading, isSuccess } = useGetTodoByIdQuery(props.todo._id);
+    const btnDetailHandler= ()=>{
+        //console.log('Data ',data);
+        router.push(`/todos/${todo._id}`);
+    };
+    return (<div>
+        {todo.title}
+       &nbsp;
+        <button type={"button"} className={"btn btn-primary"} onClick={btnDetailHandler}>Details</button>
+    </div>);
+}
 export default function TodoApiUI()
 {
-    const { data, isError, isLoading, isSuccess } = useGetAllTodosQuery();
+
+    const { data, isError, isLoading, isSuccess,refetch } = useGetAllTodosQuery(undefined,{
+       /* refetchOnFocus:true,*/
+    });
     if (isError) {
         return (
             <div>
@@ -23,9 +43,14 @@ export default function TodoApiUI()
     }
     if(isSuccess)
     {
+        const btnForceReload = ()=>{
+            console.log('Force reload');
+            refetch();
+        };
         return(<div>
+            <button type={"button"} className={"btn btn-primary"} onClick={btnForceReload}>Force Refetch</button>
             {
-                data.map(todo=><div key={todo._id}>{todo.title}</div>)
+                data.map(todo=><TodoItem todo={todo} key={todo._id}/>)
             }
         </div>)
     }

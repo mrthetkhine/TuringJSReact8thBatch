@@ -5,7 +5,7 @@ import { Nav } from "./components/Nav";
 
 import "./styles/globals.css";
 import styles from "./styles/layout.module.css";
-
+import 'bootstrap/dist/css/bootstrap.css';
 interface Props {
   readonly children: ReactNode;
 }

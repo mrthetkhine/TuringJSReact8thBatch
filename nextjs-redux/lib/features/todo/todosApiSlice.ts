@@ -16,8 +16,16 @@ export const todosApiSlice = createApi({
             // cached data returned by the query.
 
         }),
+        getTodoById:build.query<Todo,string>({
+            query: (id: string) => ({url: `todos/${id}`}),
+            transformResponse: (response: Todo, meta, arg) => {
+                console.log('Response ', response);
+                return response;
+            },
+
+        })
     }),
 });
 
 
-export const { useGetAllTodosQuery } = todosApiSlice;
+export const { useGetAllTodosQuery, useGetTodoByIdQuery } = todosApiSlice;
