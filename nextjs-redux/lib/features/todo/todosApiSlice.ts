@@ -12,6 +12,7 @@ export const todosApiSlice = createApi({
         // for the argument type instead.
         getAllTodos: build.query<Todo[]>({
             query: () => `/todos`,
+            providesTags:()=>['Todos']
             // `providesTags` determines which 'tag' is attached to the
             // cached data returned by the query.
 
@@ -23,9 +24,63 @@ export const todosApiSlice = createApi({
                 return response;
             },
 
-        })
+        }),
+        addTodo:build.mutation<Todo,Partial<Todo>>({
+            query: (todo:Partial<Todo>) => ({
+                url: `/todos`,
+                method: 'POST',
+                body:todo,
+            }),
+            //invalidatesTags:["Todos"]
+
+            async onQueryStarted(todo:Todo, { dispatch, queryFulfilled }) {
+                console.log('onQueryStarted Todo ',todo);
+
+                try {
+                    const {data:savedTodo} = await queryFulfilled
+                    console.log('Saved savedTodo ',savedTodo);
+                    const patchResult = dispatch(
+                        todosApiSlice.util.updateQueryData('getAllTodos', undefined, (draft) => {
+                            console.log('Draft ',draft);
+                            draft.push(savedTodo);
+                            return draft;
+                        }),
+                    );
+                } catch {
+                    //patchResult.undo();
+                }
+            }
+        }),
+        deleteTodo:build.mutation<Todo,string>({
+            query: (id:string) => ({
+                url: `/todos/${id}`,
+                method: 'DELETE',
+
+            }),
+            //invalidatesTags:["Todos"]
+
+            async onQueryStarted(todoId:string, { dispatch, queryFulfilled }) {
+                console.log('onQueryStarted delete Todo ',todoId);
+                const patchResult = dispatch(
+                    todosApiSlice.util.updateQueryData('getAllTodos', undefined, (draft) => {
+                        console.log('Draft ',draft);
+                        draft = draft.filter(td=>td._id != todoId);
+                        return draft;
+                    }),
+                );
+                console.log('Patch done');
+                try {
+
+                    const {data:deletedTodo} = await queryFulfilled
+                    console.log('Update delete todo response',deletedTodo);
+
+                } catch {
+                    patchResult.undo();
+                }
+            }
+        }),
     }),
 });
 
 
-export const { useGetAllTodosQuery, useGetTodoByIdQuery } = todosApiSlice;
+export const { useGetAllTodosQuery, useGetTodoByIdQuery, useAddTodoMutation, useDeleteTodoMutation } = todosApiSlice;

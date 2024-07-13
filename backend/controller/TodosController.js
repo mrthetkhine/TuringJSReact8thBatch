@@ -66,8 +66,19 @@ async function updateTodo(req,res,next)
         });
     }
 }
+async function sleep(ms)
+{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve();
+        },ms);
+    });
+
+}
 async function deleteTodo(req,res,next)
 {
+    await sleep(3000);
+    console.log('Now started');
     let todoId = req.params['todoId'];
 
     try
