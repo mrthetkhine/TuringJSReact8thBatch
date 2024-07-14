@@ -12,7 +12,11 @@ export const todosApiSlice = createApi({
         // for the argument type instead.
         getAllTodos: build.query<Todo[]>({
             query: () => `/todos`,
-            providesTags:()=>['Todos']
+            //providesTags:()=>['Todos']
+            providesTags: (result, error, arg) =>
+                result
+                    ? [...result.map(({ _id }) => ({ type: 'Todos' as const, id:_id })), 'Todos']
+                    : ['Todos'],
             // `providesTags` determines which 'tag' is attached to the
             // cached data returned by the query.
 
@@ -25,6 +29,7 @@ export const todosApiSlice = createApi({
             },
 
         }),
+        //Pessimistic
         addTodo:build.mutation<Todo,Partial<Todo>>({
             query: (todo:Partial<Todo>) => ({
                 url: `/todos`,
@@ -51,6 +56,17 @@ export const todosApiSlice = createApi({
                 }
             }
         }),
+        updateTodo:build.mutation<Todo,Todo>({
+            query: (todo:Todo) => ({
+                url: `/todos/${todo._id}`,
+                method: 'PUT',
+                body:todo,
+
+            }),
+            invalidatesTags: (result, error, arg) => [{ type: 'Todos', id: arg._id }],
+            //invalidatesTags:["Todos"]
+        }),
+        //optimistic
         deleteTodo:build.mutation<Todo,string>({
             query: (id:string) => ({
                 url: `/todos/${id}`,
@@ -83,4 +99,4 @@ export const todosApiSlice = createApi({
 });
 
 
-export const { useGetAllTodosQuery, useGetTodoByIdQuery, useAddTodoMutation, useDeleteTodoMutation } = todosApiSlice;
+export const { useGetAllTodosQuery, useGetTodoByIdQuery, useAddTodoMutation, useDeleteTodoMutation ,useUpdateTodoMutation} = todosApiSlice;

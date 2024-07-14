@@ -25,6 +25,7 @@ async function saveTodo(todo)
 async function updateTodo(todoId,todo)
 {
     let updateTodo = await Todos.findByIdAndUpdate(todoId,todo,{new:true});
+    console.log('Updated todo ',updateTodo);
     return updateTodo;
 }
 async function deleteTodo(todoId)
