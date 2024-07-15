@@ -19,7 +19,7 @@ export default function RootLayout({ children }: Props) {
             <Nav />
 
 
-
+            Here is layout
             <main className={styles.main}>{children}</main>
 
             <footer className={styles.footer}>
