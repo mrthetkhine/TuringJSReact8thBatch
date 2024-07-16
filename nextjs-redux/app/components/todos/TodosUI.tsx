@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 
 import {
     addTodo, deleteTodo, loadAllTodo,
@@ -14,12 +14,13 @@ function TodoInput()
 {
     const dispatch = useAppDispatch();
     const [todo,setTodo] = useState('');
-    const onChangeHandler = (event)=>{
+    const onChangeHandler = (event:any)=>{
         setTodo(event.target.value);
     }
     const btnAddHandler = ()=>{
         let payload:Todo = {
             id:id+'',
+            _id:id+'',
             title:todo,
             completed:false,
         };
@@ -74,7 +75,8 @@ export default function TodosUI()
 {
     const dispatch = useAppDispatch();
     console.log('AddTodo ',addTodo({
-        id:1,
+        id:'1',
+        _id:'1',
         title:'Something'
     }));
     console.log('loadAllTodo ',loadAllTodo());

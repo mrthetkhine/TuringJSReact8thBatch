@@ -6,7 +6,7 @@ import {fetchCount} from "@/lib/features/counter/counterAPI";
 export interface Todo {
     "userId"?: number,
     "id": string,
-    "_id"?:string,
+    "_id":string,
     "title": string,
     "completed"?: boolean
 }
@@ -19,11 +19,13 @@ const initialState: TodoState = {
     items:[
         {
             id:"1",
+            _id:"1",
             title:"Task1",
             completed:true
         },
         {
             id:"2",
+            _id:'2',
             title:"Task2",
             completed:true
         },

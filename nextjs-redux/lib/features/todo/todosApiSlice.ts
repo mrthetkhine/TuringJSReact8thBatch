@@ -10,7 +10,7 @@ export const todosApiSlice = createApi({
         // Supply generics for the return type (in this case `QuotesApiResponse`)
         // and the expected query argument. If there is no argument, use `void`
         // for the argument type instead.
-        getAllTodos: build.query<Todo[]>({
+        getAllTodos: build.query<Todo[],any>({
             query: () => `/todos`,
             //providesTags:()=>['Todos']
             providesTags: (result, error, arg) =>

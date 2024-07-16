@@ -14,20 +14,21 @@ export default function TodoDetails({ params }: { params: { id: string } })
        /!* pollingInterval: 2000,*!/
 
     });*/
-    const { todo, isError, isLoading, isSuccess } = useGetAllTodosQuery(undefined,{
+    const { todo }:{todo:any} = useGetAllTodosQuery(undefined,{
         selectFromResult: ({ data }) => ({
             todo: data?.find((todo) => todo._id === params.id),
         }),
     });
     const [updateTodoApi,updateTodoResult] = useUpdateTodoMutation();
-    if(isSuccess)
+    if(todo)
     {
         return (<h1> {todo.title}</h1>);
     }
     const [todoText,setTodoText] = useState('')
     const btnUpdateHandler = ()=>{
+        let obj:any = todo;
         const updateTodo:Todo ={
-            ...todo,
+            ...obj,
             title: todoText
         }
         console.log('update todo ',updateTodo);

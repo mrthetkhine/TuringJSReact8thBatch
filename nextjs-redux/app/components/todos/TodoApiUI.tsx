@@ -42,8 +42,8 @@ export default function TodoApiUI()
 
     const { data, isError, isLoading, isSuccess,refetch } = useGetAllTodosQuery(undefined,{
        /* refetchOnFocus:true,*/
-        pollingInterval: 1000,
-        skipPollingIfUnfocused: true,
+        /*pollingInterval: 1000,
+        skipPollingIfUnfocused: true,*/
     });
     if (isError) {
         return (
