@@ -20,10 +20,7 @@ export default function TodoDetails({ params }: { params: { id: string } })
         }),
     });
     const [updateTodoApi,updateTodoResult] = useUpdateTodoMutation();
-    if(todo)
-    {
-        return (<h1> {todo.title}</h1>);
-    }
+
     const [todoText,setTodoText] = useState('')
     const btnUpdateHandler = ()=>{
         let obj:any = todo;
@@ -35,6 +32,10 @@ export default function TodoDetails({ params }: { params: { id: string } })
         updateTodoApi(updateTodo)
             .unwrap()
             .then(data=>console.log('Update success ',data));
+    }
+    if(todo)
+    {
+        return (<h1> {todo.title}</h1>);
     }
     return (<div>
         Todo details

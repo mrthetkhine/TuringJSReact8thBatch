@@ -1,8 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {Todo} from "@/lib/features/todo/todoSlice";
 
+
+console.log('BACKEND URL ',process.env.NEXT_PUBLIC_BACKEND_URL);
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log('BACKEND URL ',BACKEND_URL);
 export const todosApiSlice = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api" }),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL }),
     reducerPath: "todosApi",
     // Tag types are used for caching and invalidation.
     tagTypes: ["Todos"],

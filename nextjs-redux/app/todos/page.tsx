@@ -3,6 +3,8 @@ import TodoApiUI from "@/app/components/todos/TodoApiUI";
 import {useState} from "react";
 import {useAddTodoMutation} from "@/lib/features/todo/todosApiSlice";
 import {Todo} from "@/lib/features/todo/todoSlice";
+
+console.log('Todo page BACKEND URL ',process.env.BACKEND_URL);
 function TodoInput()
 {
     const [addTodoApi,addTodoResult] = useAddTodoMutation();
@@ -34,6 +36,7 @@ function TodoInput()
 }
 export default function TodosPage()
 {
+    console.log('Todo page UI component ',process.env.NEXT_PUBLIC_BACKEND_URL);
     return (<div>
         Todos Pages
 
