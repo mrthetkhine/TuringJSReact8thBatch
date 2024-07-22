@@ -7,12 +7,13 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.0",
+    "bootstrap": "^5.3.3",
+    "formik": "^2.4.6",
     "next": "latest",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
-    "bootstrap": "^5.3.0",
-    "formik": "^2.4.6",
     "yup": "^1.4.0"
   },
   "devDependencies": {

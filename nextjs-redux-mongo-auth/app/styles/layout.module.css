@@ -8,6 +8,7 @@
   grid-template-rows: auto auto 1fr 36px;
   align-items: center;
   min-height: 100vh;
+  /*background: lightgray;*/
 }
 
 .logo {

@@ -1,0 +1,13 @@
+.movie-container
+{
+    border:1px solid gray;
+    padding:5px;
+    padding-left:10px;
+    padding-right:10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.error
+{
+    color:red;
+}
