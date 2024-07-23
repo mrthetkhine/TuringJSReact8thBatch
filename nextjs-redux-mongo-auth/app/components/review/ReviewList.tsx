@@ -1,5 +1,5 @@
 import {Review} from "@/lib/features/review/reviewApi";
-import ReviewUI from "@/app/components/movie/ReviewUI";
+import ReviewUI from "@/app/components/review/ReviewUI";
 
 export default function ReviewList({reviews}:{reviews:Review[]})
 {

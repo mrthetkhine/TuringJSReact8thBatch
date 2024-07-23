@@ -19,7 +19,7 @@ export default function NewMovieInput()
                 <Modal.Title>New Movie</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <MovieForm/>
+                <MovieForm closeModal={handleClose}/>
             </Modal.Body>
 
         </Modal>

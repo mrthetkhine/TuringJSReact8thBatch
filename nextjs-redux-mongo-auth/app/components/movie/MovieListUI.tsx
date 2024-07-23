@@ -1,13 +1,22 @@
-//'use client';
-import {Movie} from "@/lib/features/movies/movieApi";
+'use client';
+import {Movie, useGetAllMoviesQuery} from "@/lib/features/movies/movieApi";
 import MovieUI from "@/app/components/movie/MovieUI";
 
-export default function MovieListUI({ movies }: {  movies: Movie[]  })
+export default function MovieListUI()
 {
-    //console.log('Props ',movies);
-    return (<div>
-        {
-            movies.map(movie=><MovieUI movie={movie} key={movie._id}/>)
-        }
-    </div>);
+
+    const { data, isError, isLoading, isSuccess,refetch } = useGetAllMoviesQuery();
+    if(isLoading)
+    {
+        return (<h1>Loading..</h1>);
+    }
+    else if(data)
+    {
+        return (<div>
+            {
+                data.map(movie=><MovieUI movie={movie} key={movie._id}/>)
+            }
+        </div>);
+    }
+
 }

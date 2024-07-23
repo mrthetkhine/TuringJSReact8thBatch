@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.0",
+    "@smastrom/react-rating": "^1.5.0",
     "bootstrap": "^5.3.3",
     "formik": "^2.4.6",
     "next": "latest",

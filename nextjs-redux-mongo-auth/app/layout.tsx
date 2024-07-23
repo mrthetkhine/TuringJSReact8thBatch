@@ -7,6 +7,7 @@ import "./styles/globals.css";
 import styles from "./styles/layout.module.css";
 import styles2 from './components/movie/movie.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import '@smastrom/react-rating/style.css'
 interface Props {
   readonly children: ReactNode;
 }
