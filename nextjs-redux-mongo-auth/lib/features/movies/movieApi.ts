@@ -84,9 +84,36 @@ export const moviesApiSlice = createApi({
             }
 
         }),
+        deleteMovie:build.mutation<Movie, string>({
+            query: (id:string) => ({
+                url: `/movies/${id}`,
+                method: 'DELETE',
+
+            }),
+
+            //Optimistic
+
+            async onQueryStarted(id:string , { dispatch, queryFulfilled }) {
+                console.log('Id ',id);
+                const patchResult = dispatch(
+                    moviesApiSlice.util.updateQueryData('getAllMovies', undefined, (draft) => {
+                        //console.log('Draft ',draft);
+                        draft = draft.filter(movie=>movie._id != id);
+                        //console.log('Draft ',draft);
+                        return draft;
+                    }),
+                );
+                try {
+                    const {data:deletedMovie} = await queryFulfilled
+                    console.log('Deleted movie ',deletedMovie);
+                } catch {
+                    patchResult.undo();
+                }
+            }
+        }),
 
     }),
 });
 
 
-export const { useGetAllMoviesQuery , useAddMovieMutation,useUpdateMovieMutation} = moviesApiSlice;
+export const { useGetAllMoviesQuery , useAddMovieMutation,useUpdateMovieMutation,useDeleteMovieMutation} = moviesApiSlice;

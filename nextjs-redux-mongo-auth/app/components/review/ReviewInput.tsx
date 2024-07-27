@@ -3,7 +3,7 @@ import MovieForm from "@/app/components/movie/MovieForm";
 import {useState} from "react";
 import ReviewForm from "@/app/components/review/ReviewForm";
 
-export default function ReviewInput()
+export default function ReviewInput({movieId}:{movieId:string})
 {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -17,7 +17,7 @@ export default function ReviewInput()
                 <Modal.Title>New Review</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <ReviewForm/>
+                <ReviewForm movieId={movieId} handleClose={handleClose}/>
             </Modal.Body>
 
         </Modal>

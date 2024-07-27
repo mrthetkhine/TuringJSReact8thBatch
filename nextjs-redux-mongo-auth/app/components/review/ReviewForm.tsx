@@ -3,8 +3,9 @@ import {Button, Modal,Form as BForm} from "react-bootstrap";
 import * as Yup from "yup";
 import { Rating as ReactRating } from '@smastrom/react-rating'
 
-import {Review} from "@/lib/features/review/reviewApi";
+import {Review, useAddReviewMutation, useUpdateReviewMutation} from "@/lib/features/review/reviewApi";
 import {useState} from "react";
+import {useAddMovieMutation} from "@/lib/features/movies/movieApi";
 const ReviewSchema = Yup.object().shape({
 
     rating: Yup.string()
@@ -15,15 +16,72 @@ const ReviewSchema = Yup.object().shape({
         .required('Required'),
 
 });
-export default function ReviewForm()
+export default function ReviewForm(
+    {
+        movieId,
+        handleClose,
+        reviewToEdit,
+    }:
+    {   movieId:string,
+        handleClose:()=>void,
+        reviewToEdit:Review
+    })
 {
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(reviewToEdit?reviewToEdit.rating:0);
+    console.log('Review form');
+    const [addReviewApi,addReviewResult] = useAddReviewMutation();
+    const [updateReviewApi,updateReviewResult] = useUpdateReviewMutation();
     const initValues = {
-        rating: '0',
+        rating:0,
         review :'',
     };
+    if(reviewToEdit)
+    {
+        initValues.review = reviewToEdit.review;
+    }
+
+    function addReview(values: any) {
+        const json: any = {
+            ...values
+        }
+        json.movie = movieId;
+        console.log('Submit ', json);
+        addReviewApi(json)
+            .unwrap()
+            .then(data => {
+                console.log('Add Review success ', data);
+                handleClose();
+            })
+    }
+
+    function updateReview(values: any) {
+        //update
+        const reviewToUpdate: any = {
+            ...reviewToEdit
+        };
+        reviewToUpdate.movie = reviewToEdit.movie._id;
+        reviewToUpdate.rating = rating;
+        reviewToUpdate.review = values.review;
+        console.log('Update Review ', reviewToUpdate);
+        updateReviewApi(reviewToUpdate)
+            .unwrap()
+            .then(data => {
+                console.log('Update review success ', data);
+                handleClose();
+            });
+    }
+
     const submitHandler = (values:any)=> {
-        console.log('Submit ',values);
+        console.log('on submit ',values);
+        if(reviewToEdit)
+        {
+            updateReview(values);
+        }
+        else
+        {
+            addReview(values);
+        }
+
     };
     return (<div>
         <Formik initialValues={initValues}
