@@ -16,7 +16,8 @@ const reviewApi = moviesApiSlice.injectEndpoints({
                     review.movie = review.movie._id;
                     return review;
                 });
-            }
+            },
+            providesTags:()=>['Reviews']
         }),
         //Pessimistic
         addReview:build.mutation<Review,any>({

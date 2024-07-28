@@ -16,10 +16,23 @@ export interface Movie {
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 console.log('BACKEND URL ',BACKEND_URL);
 export const moviesApiSlice = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
+        prepareHeaders: (headers, {getState}) => {
+            // By default, if we have a token in the store, let's use that for authenticated requests
+            const state = (getState() as RootState);
+            console.log('prepareHeaders State ', state);
+            if(state.auth.token)
+            {
+                headers.set('Authorization', 'Bearer '+state.auth.token);
+            }
+            return headers;
+
+        }
+    }),
     reducerPath: "moviesApi",
     // Tag types are used for caching and invalidation.
-    tagTypes: ["Movies"],
+    tagTypes: ["Movies","Reviews","Auth"],
     endpoints: (build) => ({
         // Supply generics for the return type (in this case `QuotesApiResponse`)
         // and the expected query argument. If there is no argument, use `void`

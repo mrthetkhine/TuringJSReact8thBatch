@@ -5,7 +5,7 @@ import {Review, useGetAllReviewsByMovieIdQuery} from "@/lib/features/review/revi
 import ReviewList from "@/app/components/review/ReviewList";
 import ReviewInput from "@/app/components/review/ReviewInput";
 import {useRouter} from "next/navigation";
-
+import IsAuth from "@/app/components/Auth/IsAuth";
 const reviews:Review[] = [
     /*{
         "_id": "66643c5d3bfda65279a2e957",
@@ -22,7 +22,7 @@ const reviews:Review[] = [
 
     }*/
     ];
-export default function Page({ params }: { params: { id: string } })
+function MovieDetailsPage({ params }: { params: { id: string } })
 {
 
     const router = useRouter();
@@ -48,3 +48,4 @@ export default function Page({ params }: { params: { id: string } })
         </button>
     </div>);
 }
+export default IsAuth(MovieDetailsPage)

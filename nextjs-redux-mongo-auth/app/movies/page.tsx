@@ -1,9 +1,10 @@
+'use client';
 import MovieListUI from "@/app/components/movie/MovieListUI";
 import {Movie} from "@/lib/features/movies/movieApi";
 import NewMovieInput from "@/app/components/movie/NewMovieInput";
+import IsAuth from "@/app/components/Auth/IsAuth";
 
-
-export default function Page()
+function MoviePage()
 {
 
     return(<div>
@@ -11,3 +12,4 @@ export default function Page()
         <MovieListUI/>
     </div>);
 }
+export default IsAuth(MoviePage);
